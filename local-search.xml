@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>UVa01001</title>
+    <link href="/2022/08/15/20220815/"/>
+    <url>/2022/08/15/20220815/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3442">題目連結</a></p><hr><ul><li>❗️ 題意<br>在一塊起司中，給有n個球形的洞，在洞裡的移動不耗時間，再給定出發點與終點，問你從出發點到終點，的最短路徑是多少?</li></ul><hr><ul><li>✔️ 題解<br>將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd-Warshall就可找出起點到終點的最短路徑。<br>我們可以分成以下三個case來討論：<br>假設有點A與點B，A(x)代表A的座標在x，r則是其半徑。<table><thead><tr><th align="center">Case1:兩圓外離</th><th align="center">Case2:兩圓外切</th><th align="center">Case3:兩圓相交</th></tr></thead><tbody><tr><td align="center"><img src="/./img/20220815/case1.png"></td><td align="center"><img src="/./img/20220815/case1.png"></td><td align="center"><img src="/./img/20220815/case1.png"></td></tr></tbody></table></li></ul><p>因此，我們可以導出以下式子<br>$$<br>f(n) &#x3D;<br>\begin{cases}<br>n&#x2F;2,  &amp; \text{if $n$ is even} \<br>3n+1, &amp; \text{if $n$ is odd}<br>\end{cases}<br>$$</p><hr><ul><li>💻 程式碼<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><br></code></pre></td></tr></table></figure><div class="note note-warning">            <p>這題更煩的反而是格式輸入輸出吧…😅</p>          </div></li></ul><hr><ul><li>🧠 心得<br>當初會解這題是因為剛好有學長來問我類似的題目，也趁這次機會來複習一下拓墣排序。之前的我都是用DFS的順序來找order，而改用queue的方法只需要用一個array來記錄入in degree即可，比我用DFS的做法好寫很多。<br>順帶一提，學長說這是他們進碩班老師拿給他們練習的大一題目，大一就在拓墣排序，沒搞錯吧？</li></ul><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>UVa</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Topological Sort</tag>
+      
+      <tag>AOE Network</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>UVa00452 Project Scheduling</title>
+    <link href="/2022/08/13/20220813/"/>
+    <url>/2022/08/13/20220813/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=393">題目連結</a></p><hr><ul><li>❗️ 題意<br>給定點、經過這個點的cost、哪些點連到這個點，求出需要多少時間才能夠走完所有點。</li></ul><hr><ul><li>✔️ 題解<br>ans[now]代表目前這個點的答案，而ans[next]是now這個點所可以走到的點，而更新公式就是ans[next] &#x3D; max(ans[next], node[next] + ans[now])，其中node是原本點上的值。<br>我們只需要在利用BFS做拓墣排序的過程中更新ans的值，就能夠確定點的更新順序是對的，不會有更新點的時候前面的點還沒有更新到的問題，最後只需要輸出最大的ans[i]即可。</li></ul><hr><ul><li>💻 程式碼<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">30</span>;<br><span class="hljs-type">int</span> node[MAXN];<br><span class="hljs-type">int</span> cnt[MAXN];<br><span class="hljs-type">int</span> ans[MAXN];<br><span class="hljs-type">bool</span> used[MAXN];<br>vector&lt;<span class="hljs-type">int</span>&gt;G[MAXN];<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-built_in">memset</span>(node, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(node));<br><span class="hljs-built_in">memset</span>(cnt, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(cnt));<br><span class="hljs-built_in">memset</span>(ans, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(ans));<br><span class="hljs-built_in">memset</span>(used, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(used));<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; MAXN; i++)&#123;<br>G[i].<span class="hljs-built_in">clear</span>();<br>&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-type">int</span> t;<br>string line;<br>cin &gt;&gt; t;<br>cin.<span class="hljs-built_in">ignore</span>();<br><span class="hljs-built_in">getline</span>(cin, line);<br><span class="hljs-keyword">while</span>(t--)&#123;<br><span class="hljs-built_in">init</span>();<br><span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>)&#123;<br>line.<span class="hljs-built_in">clear</span>();<br><span class="hljs-built_in">getline</span>(cin, line);<br><span class="hljs-keyword">if</span>(line.<span class="hljs-built_in">size</span>() == <span class="hljs-number">0</span>)&#123;<br><span class="hljs-keyword">break</span>;<br>&#125;<br><span class="hljs-function">stringstream <span class="hljs-title">ss</span><span class="hljs-params">(line)</span></span>;<br><span class="hljs-type">char</span> idx, another;<br><span class="hljs-type">int</span> val;<br>ss &gt;&gt; idx;<br>ss &gt;&gt; val;<br>node[idx - <span class="hljs-string">&#x27;A&#x27;</span>] = val;<br>ans[idx - <span class="hljs-string">&#x27;A&#x27;</span>] = val;<br>used[idx - <span class="hljs-string">&#x27;A&#x27;</span>] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span>(ss &gt;&gt; another)&#123;<br>cnt[idx - <span class="hljs-string">&#x27;A&#x27;</span>]++;<br>G[another - <span class="hljs-string">&#x27;A&#x27;</span>].<span class="hljs-built_in">emplace_back</span>(idx - <span class="hljs-string">&#x27;A&#x27;</span>);<br>&#125;<br>&#125;<br>queue&lt;<span class="hljs-type">int</span>&gt;q;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; MAXN; i++)&#123;<br><span class="hljs-keyword">if</span>(cnt[i] == <span class="hljs-number">0</span> &amp;&amp; used[i])&#123;<br>q.<span class="hljs-built_in">emplace</span>(i);<br>&#125;<br>&#125;<br><span class="hljs-keyword">while</span>(!q.<span class="hljs-built_in">empty</span>())&#123;<br><span class="hljs-type">int</span> now = q.<span class="hljs-built_in">front</span>();q.<span class="hljs-built_in">pop</span>();<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> next: G[now])&#123;<br>ans[next] = <span class="hljs-built_in">max</span>(ans[next], node[next] + ans[now]);<br>cnt[next]--;<br><span class="hljs-keyword">if</span>(cnt[next] == <span class="hljs-number">0</span>)&#123;<br>q.<span class="hljs-built_in">emplace</span>(next);<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-type">int</span> res = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; MAXN; i++)&#123;<br>res = <span class="hljs-built_in">max</span>(res, ans[i]);<br>&#125;<br>cout &lt;&lt; res &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br><span class="hljs-keyword">if</span>(t)&#123;<br>cout &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure><div class="note note-warning">            <p>這題更煩的反而是格式輸入輸出吧…😅</p>          </div></li></ul><hr><ul><li>🧠 心得<br>當初會解這題是因為剛好有學長來問我類似的題目，也趁這次機會來複習一下拓墣排序。之前的我都是用DFS的順序來找order，而改用queue的方法只需要用一個array來記錄入in degree即可，比我用DFS的做法好寫很多。<br>順帶一提，學長說這是他們進碩班老師拿給他們練習的大一題目，大一就在拓墣排序，沒搞錯吧？</li></ul><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>UVa</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Topological Sort</tag>
+      
+      <tag>AOE Network</tag>
+      
+      <tag>cpp</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>忘記要報告了QQ</title>
+    <link href="/2022/08/11/20220811/"/>
+    <url>/2022/08/11/20220811/</url>
+    
+    <content type="html"><![CDATA[<hr><p>又到了每週一次的meeting，由於上禮拜沒有meeting到，我以為這週是不用報告的，只要大略講一下這週的進度，就沒有做投影片了。誰知道原來上週我們這組沒有報告到，我就緊急的在其他同學報告的時候把投影片趕出來(只做了7頁)，只能說我真的做的很敷衍哈哈哈。我發現自己常常會有這種僥倖的心態，常常把事情拖到最後一刻才做，我想這點是我需要好好反省並改善的，這幾天我應該會開始做我研究所的讀書計畫，也要開始寄信給老師詢問推薦信的事了，現在只希望一切順利！</p><blockquote><p>30分鐘趕出來的投影片<br><img src="/./img/20220811/20220811.png" alt="敷衍ㄉ投影片"></p></blockquote><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>週記</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>心情</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>模型修改</title>
+    <link href="/2022/08/10/20220810/"/>
+    <url>/2022/08/10/20220810/</url>
+    
+    <content type="html"><![CDATA[<hr><p>這個星期我稍微修改了模型的架構，聽從了學長的建議，只轉單一風格或許會讓NN學不到「風格」的特徵，因此我應該更注重的是在多種風格的轉換而非單純的多張照片對一種風格的轉換。另外，我也稍微看了一下adain的論文，既然風格轉換可以說是從一個domain映射到另一個domain，那對於最後要生成圖像的decoder(Generator)，就不應該對它做IN(instance normalization)，有關於adain我想我未來可以再發一篇文來解釋。而都是基於理論上的想法，而我在實作時明顯發現，刪掉了IN會讓我的loss能夠將的更低，但由於訓練時間因為要做多風格轉換就從原本的幾個小時變成了需要訓練一天半左右。</p><p>目前訓練上最麻煩的就是時間了，因為每個禮拜都要meeting，但礙於訓練時間拉長的緣故，其實我進度可能會稍微緩慢一些，更何況這還只是對於小資料集(10張照片轉換成8種風格)，未來若要做到更大的資料集，我想那個訓練時間應該會非常可觀QQ，目前也只能這樣了。</p><blockquote><p>未來我在想，應該要增加我的發文頻率，由於我原本預期是週記，但我發現一週能講的事情實在是太多了，而且我是個非常健忘的人，常常一週過了我就忘記我這週到底都在幹嘛了哈哈哈哈，未來我希望能夠一週發個4~5篇文，最好是能每天都更新，不然到最後我怕因為懶惰而放棄我的週記計畫QQ。</p></blockquote><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>學習紀錄</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>廢話</tag>
+      
+      <tag>深度學習</tag>
+      
+      <tag>autoencoder</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>七夕情人節快樂</title>
+    <link href="/2022/08/08/20220808/"/>
+    <url>/2022/08/08/20220808/</url>
+    
+    <content type="html"><![CDATA[<hr><p>上週四剛好是七夕情人節，而那天我也決定到新竹的清華大學走走(抱歉ㄌ教授，沒有開到每週一次的meeting)，順便看一下他們校園內的設備之類的。雖然沒有辦法進入他們的資工系大樓內，但依然可以看出他們的設備與輔大的差別，光是圖書館就足以讓人羨慕不已(雖然資工學生應該也不會去圖書館啦哈哈哈)，而這也讓我更想上好一點的研究所，卻也因此更加擔憂，害怕自己推甄沒有辦法上。</p><p>這幾天我也在查詢各校資工系的簡章，也開始著手準備自己的履歷。我認為自己的經歷並不豐富，而目前專題也沒有辦法做出一個好的成果，真的只能加油ㄌQQ。</p><p>順帶一提，這週也剛好找到新社長了！未來我就是CPC的退休老人啦，學弟妹加油ㄌ &gt;&lt;</p><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>週記</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>廢話</tag>
+      
+      <tag>心情</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>我的吉娃娃著火了</title>
+    <link href="/2022/08/03/20220803/"/>
+    <url>/2022/08/03/20220803/</url>
+    
+    <content type="html"><![CDATA[<hr><p>目前我畢業專題研究的主題是Style Transfer，而Style Transfer簡單來說就是將相片A轉換成相片B的風格(曾經被女友說過就是IG特效，差點哭出來QQ)，能使用的方法其實蠻多元的，也不限於使用NN(neural network)來做。而我的整體架構是利用autoencoder的概念，想法算是蠻簡單的，就是將兩張照片的內容與風格抽出來後再合併，比較難的是要如何<strong>「衡量」</strong>一張照片的風格究竟是什麼，對於從小到大都沒有藝術細胞的我來說這真的是非常痛苦的一件事。<br>目前為止整體轉換的效果其實還蠻普通的，可能還需要再調整一下網路架構與想法，下面是我最近做出來的成果，分別是轉變幅度從小到大，而內容都是吉娃娃加上火焰的樣子。</p><table><thead><tr><th align="center">small</th><th align="center">medium</th><th align="center">large</th></tr></thead><tbody><tr><td align="center"><img src="/./img/20220803/small3.png"></td><td align="center"><img src="/./img/20220803/medium3.png"></td><td align="center"><img src="/./img/20220803/large3.png"></td></tr></tbody></table><p>我個人認為中間那張轉換的幅度是最剛好的，而我也試過拿其他風格來轉換，只能說轉換成火焰是一個較為簡單的task，如果是其他風格的話目前我的模型還沒有辦法跑出比較好的結果，只能等調整過再分享給大家。</p><blockquote><p>對了，我的文章下方有開啟留言板，若有建議或任何問題在底下留言，之後再發一篇文來介紹一下我自己好了～</p></blockquote><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>學習紀錄</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>深度學習</tag>
+      
+      <tag>autoencoder</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>週記計畫</title>
+    <link href="/2022/08/01/20220801/"/>
+    <url>/2022/08/01/20220801/</url>
+    
+    <content type="html"><![CDATA[<hr><p>我是輔大資工要升大四的學生，今天是8月的第一天，也是我開始寫週記的第一週，希望我能夠持續維持記錄生活的習慣。<br>基本上我的週記會包含我的生活與一些心情跟最近在做的事。至於為何要開始寫週記呢，其實我還沒有一個特別好的說法，就只是單純想試試看而已。</p><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>週記</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>廢話</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
