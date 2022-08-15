@@ -16,21 +16,23 @@
   <meta name="author" content="Hank Hsu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="題目連結   ❗️ 題意在一塊起司中，給有n個球形的洞，在洞裡的移動不耗時間，再給定出發點與終點，問你從出發點到終點，的最短路徑是多少?    ✔️ 題解將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd-Warshall就可找出起點到終點的最短路徑。我們可以分成以下三個case來討論：假設有點A與點B，A(x)代表A的座標在x，r則是其半徑。">
+    <meta name="description" content="題目連結   ❗️ 題意在一塊起司中，給有n個球形的洞，在洞裡的移動不耗時間，再給定出發點與終點，問你從出發點到終點，的最短路徑(距離：時間 &#x3D; 1:10)是多少?    ✔️ 題解將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd Warshall就可找出起點到終點的最短路徑(時間)。假設有點A與點B，A(x)代表A的座標在x，r則是其半">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UVa01001">
+<meta property="og:title" content="UVa01001 Say Cheese">
 <meta property="og:url" content="http://example.com/2022/08/15/20220815/index.html">
 <meta property="og:site_name" content="Hank&#39;s Blog">
-<meta property="og:description" content="題目連結   ❗️ 題意在一塊起司中，給有n個球形的洞，在洞裡的移動不耗時間，再給定出發點與終點，問你從出發點到終點，的最短路徑是多少?    ✔️ 題解將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd-Warshall就可找出起點到終點的最短路徑。我們可以分成以下三個case來討論：假設有點A與點B，A(x)代表A的座標在x，r則是其半徑。">
+<meta property="og:description" content="題目連結   ❗️ 題意在一塊起司中，給有n個球形的洞，在洞裡的移動不耗時間，再給定出發點與終點，問你從出發點到終點，的最短路徑(距離：時間 &#x3D; 1:10)是多少?    ✔️ 題解將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd Warshall就可找出起點到終點的最短路徑(時間)。假設有點A與點B，A(x)代表A的座標在x，r則是其半">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/20220815/case1.png">
 <meta property="og:image" content="http://example.com/img/20220815/case1.png">
 <meta property="og:image" content="http://example.com/img/20220815/case1.png">
 <meta property="article:published_time" content="2022-08-15T15:07:20.000Z">
-<meta property="article:modified_time" content="2022-08-15T15:31:07.109Z">
+<meta property="article:modified_time" content="2022-08-15T16:30:54.250Z">
 <meta property="article:author" content="Hank Hsu">
-<meta property="article:tag" content="Topological Sort">
-<meta property="article:tag" content="AOE Network">
+<meta property="article:tag" content="cpp">
+<meta property="article:tag" content="Floyd Warshall">
+<meta property="article:tag" content="Shortest Path">
+<meta property="article:tag" content="Graph">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/20220815/case1.png">
   
@@ -38,7 +40,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>UVa01001 - Hank&#39;s Blog</title>
+  <title>UVa01001 Say Cheese - Hank&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +205,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="UVa01001"></span>
+            <span id="subtitle" data-typed-text="UVa01001 Say Cheese"></span>
           
         </div>
 
@@ -226,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          511 words
+          1.8k words
         
       </span>
     
@@ -237,7 +239,7 @@
         
         
         
-          5 mins
+          15 mins
         
       </span>
     
@@ -283,12 +285,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">UVa01001</h1>
+            <h1 style="display: none">UVa01001 Say Cheese</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on 18 minutes ago
+                    Last updated on a minute ago
                   
                 
               </p>
@@ -299,11 +301,11 @@
                 <p><a target="_blank" rel="noopener" href="https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3442">題目連結</a></p>
 <hr>
 <ul>
-<li>❗️ 題意<br>在一塊起司中，給有n個球形的洞，在洞裡的移動不耗時間，再給定出發點與終點，問你從出發點到終點，的最短路徑是多少?</li>
+<li>❗️ 題意<br>在一塊起司中，給有n個球形的洞，在洞裡的移動不耗時間，再給定出發點與終點，問你從出發點到終點，的最短路徑(距離：時間 &#x3D; 1:10)是多少?</li>
 </ul>
 <hr>
 <ul>
-<li>✔️ 題解<br>將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd-Warshall就可找出起點到終點的最短路徑。<br>我們可以分成以下三個case來討論：<br>假設有點A與點B，A(x)代表A的座標在x，r則是其半徑。<table>
+<li>✔️ 題解<br>將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd Warshall就可找出起點到終點的最短路徑(時間)。<br>假設有點A與點B，A(x)代表A的座標在x，r則是其半徑，我們可以分成以下三個case來討論：<table>
 <thead>
 <tr>
 <th align="center">Case1:兩圓外離</th>
@@ -319,17 +321,20 @@
 </tbody></table>
 </li>
 </ul>
-<p>因此，我們可以導出以下式子<br>$$<br>f(n) &#x3D;<br>\begin{cases}<br>n&#x2F;2,  &amp; \text{if $n$ is even} \<br>3n+1, &amp; \text{if $n$ is odd}<br>\end{cases}<br>$$</p>
+<p>因此，我們可以導出以下式子<br>$$<br>distance(a, b) &#x3D;<br>\begin{cases}<br>\overline{AB} - r_{a} - r_{b}, &amp; \text{if $\overline{AB}$ &gt; $r_{a}$ + $r_{b}$} \\<br>0, &amp; \text{if $\overline{AB}$ $\le$  $r_{a}$ + $r_{b}$}<br>\end{cases}<br>$$<br>建完圖後這題就變成單純的最短路啦，我們只要利用floyd warshall或任何求最短路的演算法，找出起點與終點的距離再乘以10就是答案了。</p>
 <hr>
 <ul>
-<li>💻 程式碼<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><br></code></pre></td></tr></table></figure>
+<li>💻 程式碼<blockquote>
+<p>10ms</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">dis</span><span class="hljs-params">(<span class="hljs-type">int</span> x1, <span class="hljs-type">int</span> y1, <span class="hljs-type">int</span> z1, <span class="hljs-type">int</span> x2, <span class="hljs-type">int</span> y2, <span class="hljs-type">int</span> z2)</span></span>&#123;<br>	<span class="hljs-type">double</span> x = x1 - x2, y = y1 - y2, z = z1 - z2;<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">sqrt</span>(x * x + y * y + z * z);<br>&#125;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">item</span>&#123;<br>	<span class="hljs-type">int</span> x, y, z, r;<br>&#125;;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-type">int</span> n;<br>	<span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">while</span>(cin &gt;&gt; n &amp;&amp; n != <span class="hljs-number">-1</span>)&#123;<br>		item arr[n + <span class="hljs-number">2</span>];<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>			cin &gt;&gt; arr[i].x &gt;&gt; arr[i].y &gt;&gt; arr[i].z &gt;&gt; arr[i].r;<br>		&#125;<br>		cin &gt;&gt; arr[<span class="hljs-number">0</span>].x &gt;&gt; arr[<span class="hljs-number">0</span>].y &gt;&gt; arr[<span class="hljs-number">0</span>].z;<br>		arr[<span class="hljs-number">0</span>].r = <span class="hljs-number">0</span>;<br>		cin &gt;&gt; arr[n + <span class="hljs-number">1</span>].x &gt;&gt; arr[n + <span class="hljs-number">1</span>].y &gt;&gt; arr[n + <span class="hljs-number">1</span>].z;<br>		arr[n + <span class="hljs-number">1</span>].r = <span class="hljs-number">0</span>;<br>		<span class="hljs-type">double</span> dp[n + <span class="hljs-number">2</span>][n + <span class="hljs-number">2</span>];<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n + <span class="hljs-number">2</span>; i++)&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n + <span class="hljs-number">2</span>; j++)&#123;<br>				dp[i][j] = INT_MAX;<br>			&#125;<br>		&#125;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n + <span class="hljs-number">2</span>; i++)&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n + <span class="hljs-number">2</span>; j++)&#123;<br>				<span class="hljs-type">double</span> di = <span class="hljs-built_in">dis</span>(arr[i].x, arr[i].y, arr[i].z, arr[j].x, arr[j].y, arr[j].z);<br>				<span class="hljs-keyword">if</span>(di &lt;= arr[i].r + arr[j].r)<br>					dp[i][j] = <span class="hljs-number">0</span>;<br>				<span class="hljs-keyword">else</span><br>					dp[i][j] = di - arr[i].r - arr[j].r;<br><br>			&#125;<br>		&#125;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; n + <span class="hljs-number">2</span>; k++)&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n + <span class="hljs-number">2</span>; i++)&#123;<br>				<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n + <span class="hljs-number">2</span>; j++)&#123;<br>					dp[i][j] = <span class="hljs-built_in">min</span>(dp[i][j], dp[i][k] + dp[k][j]);<br>				&#125;<br>			&#125;<br>		&#125;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Cheese %d: Travel time = %d sec\n&quot;</span>, ++cnt, (<span class="hljs-type">int</span>)<span class="hljs-built_in">round</span>(dp[<span class="hljs-number">0</span>][n + <span class="hljs-number">1</span>] * <span class="hljs-number">10</span>));<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <div class="note note-warning">
-            <p>這題更煩的反而是格式輸入輸出吧…😅</p>
+            <p>答案記得乘以10後做round，否則會有精度問題QQ</p>
           </div></li>
 </ul>
 <hr>
 <ul>
-<li>🧠 心得<br>當初會解這題是因為剛好有學長來問我類似的題目，也趁這次機會來複習一下拓墣排序。之前的我都是用DFS的順序來找order，而改用queue的方法只需要用一個array來記錄入in degree即可，比我用DFS的做法好寫很多。<br>順帶一提，學長說這是他們進碩班老師拿給他們練習的大一題目，大一就在拓墣排序，沒搞錯吧？</li>
+<li>🧠 心得<br>記得這是某次我們學校自辦賽的題目，當初做完這題的時候一直WA，找不到自己哪裡寫錯了，想說是哪裡想法有錯，最後被精度搞了一波🥲。<br>賽後發現自己的想法是正確的，只差在取round的部分，就想在這邊分享給大家啦～</li>
 </ul>
 <hr>
 
@@ -365,9 +370,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Topological-Sort/">#Topological Sort</a>
+        <a href="/tags/cpp/">#cpp</a>
       
-        <a href="/tags/AOE-Network/">#AOE Network</a>
+        <a href="/tags/Floyd-Warshall/">#Floyd Warshall</a>
+      
+        <a href="/tags/Shortest-Path/">#Shortest Path</a>
+      
+        <a href="/tags/Graph/">#Graph</a>
       
     </div>
   
@@ -379,7 +388,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>UVa01001</div>
+      <div>UVa01001 Say Cheese</div>
       <div>http://example.com/2022/08/15/20220815/</div>
     </div>
     <div class="license-meta">
