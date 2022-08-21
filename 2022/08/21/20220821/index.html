@@ -16,31 +16,26 @@
   <meta name="author" content="Hank Hsu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="題目連結   ❗️ 題意在一塊起司中，給有n個球形的洞，在洞裡的移動不耗時間，再給定出發點與終點，問你從出發點到終點，的最短路徑(距離：時間 &#x3D; 1:10)是多少?    ✔️ 題解將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd Warshall就可找出起點到終點的最短路徑(時間)。假設有點A與點B，A(x)代表A的座標在x，r則是其">
+    <meta name="description" content="題目連結   ❗️ 題意給定數字n，代表利用1~n的數字圍成一個環，並以1當成出發點，連續的數字加起來一定要是質數(包括最後一個數字與1)，請輸出所以可能的組合。    ✔️ 題解很明顯這題就是枚舉，我們只先建出一個質數表，只要建到31即可(n最大16，其中最大的質數就是15+16&#x3D;31)，我們再利用backtracking的方式，維護一個vector，當目前的最後一個與要新加入的數字和">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UVa01001 Say Cheese">
-<meta property="og:url" content="http://example.com/2022/08/15/20220815/index.html">
+<meta property="og:title" content="UVa00524 Prime Ring Problem">
+<meta property="og:url" content="http://example.com/2022/08/21/20220821/index.html">
 <meta property="og:site_name" content="Hank&#39;s Blog">
-<meta property="og:description" content="題目連結   ❗️ 題意在一塊起司中，給有n個球形的洞，在洞裡的移動不耗時間，再給定出發點與終點，問你從出發點到終點，的最短路徑(距離：時間 &#x3D; 1:10)是多少?    ✔️ 題解將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd Warshall就可找出起點到終點的最短路徑(時間)。假設有點A與點B，A(x)代表A的座標在x，r則是其">
+<meta property="og:description" content="題目連結   ❗️ 題意給定數字n，代表利用1~n的數字圍成一個環，並以1當成出發點，連續的數字加起來一定要是質數(包括最後一個數字與1)，請輸出所以可能的組合。    ✔️ 題解很明顯這題就是枚舉，我們只先建出一個質數表，只要建到31即可(n最大16，其中最大的質數就是15+16&#x3D;31)，我們再利用backtracking的方式，維護一個vector，當目前的最後一個與要新加入的數字和">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/20220815/case1.png">
-<meta property="og:image" content="http://example.com/img/20220815/case2.png">
-<meta property="og:image" content="http://example.com/img/20220815/case3.png">
-<meta property="article:published_time" content="2022-08-15T15:07:20.000Z">
-<meta property="article:modified_time" content="2022-08-20T12:18:11.918Z">
+<meta property="article:published_time" content="2022-08-21T15:48:04.000Z">
+<meta property="article:modified_time" content="2022-08-21T16:13:18.280Z">
 <meta property="article:author" content="Hank Hsu">
-<meta property="article:tag" content="Graph">
 <meta property="article:tag" content="cpp">
-<meta property="article:tag" content="Floyd Warshall">
-<meta property="article:tag" content="Shortest Path">
+<meta property="article:tag" content="Backtracking">
+<meta property="article:tag" content="Prime">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/20220815/case1.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>UVa01001 Say Cheese - Hank&#39;s Blog</title>
+  <title>UVa00524 Prime Ring Problem - Hank&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -205,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="UVa01001 Say Cheese"></span>
+            <span id="subtitle" data-typed-text="UVa00524 Prime Ring Problem"></span>
           
         </div>
 
@@ -221,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-15 23:07" pubdate>
-          August 15, 2022 pm
+        <time datetime="2022-08-21 23:48" pubdate>
+          August 21, 2022 pm
         </time>
       </span>
     
@@ -233,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k words
+          1.6k words
         
       </span>
     
@@ -244,7 +239,7 @@
         
         
         
-          16 mins
+          14 mins
         
       </span>
     
@@ -290,12 +285,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">UVa01001 Say Cheese</h1>
+            <h1 style="display: none">UVa00524 Prime Ring Problem</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on a day ago
+                    Last updated on a minute ago
                   
                 
               </p>
@@ -303,44 +298,28 @@
             
               <div class="markdown-body">
                 
-                <hr>
-<p><a target="_blank" rel="noopener" href="https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3442">題目連結</a></p>
+                <p><a target="_blank" rel="noopener" href="https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=465">題目連結</a></p>
 <hr>
 <ul>
-<li>❗️ 題意<br>在一塊起司中，給有n個球形的洞，在洞裡的移動不耗時間，再給定出發點與終點，問你從出發點到終點，的最短路徑(距離：時間 &#x3D; 1:10)是多少?</li>
+<li>❗️ 題意<br>給定數字n，代表利用1~n的數字圍成一個環，並以1當成出發點，連續的數字加起來一定要是質數(包括最後一個數字與1)，請輸出所以可能的組合。</li>
 </ul>
 <hr>
 <ul>
-<li>✔️ 題解<br>將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd Warshall就可找出起點到終點的最短路徑(時間)。<br>假設有點A與點B，A(x)代表A的座標在x，r則是其半徑，我們可以分成以下三個case來討論：<table>
-<thead>
-<tr>
-<th align="center">Case1:兩圓外離</th>
-<th align="center">Case2:兩圓外切</th>
-<th align="center">Case3:兩圓相交</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><img src="/./img/20220815/case1.png" srcset="/img/loading.gif" lazyload></td>
-<td align="center"><img src="/./img/20220815/case2.png" srcset="/img/loading.gif" lazyload></td>
-<td align="center"><img src="/./img/20220815/case3.png" srcset="/img/loading.gif" lazyload></td>
-</tr>
-</tbody></table>
-</li>
+<li>✔️ 題解<br>很明顯這題就是枚舉，我們只先建出一個質數表，只要建到31即可(n最大16，其中最大的質數就是15+16&#x3D;31)，我們再利用backtracking的方式，維護一個vector，當目前的最後一個與要新加入的數字和為質數時就將其加入，並在當vector的長度為n時，確認最後一個與第一個數字的和是否是質數，再決定是否是合法的序列。<br>其中，我們可以注意到，因為我們組出來的序列一定會是「奇偶奇偶奇偶奇偶…」，若n是奇數時，最後一個數字一定也會是奇數，結尾的奇數(至少3)加開頭的1一定是一個大於2的偶數，而大於2的偶數都不是質數，也就是說我們沒有辦法組合出任何一個序列，因此當n是奇數時是沒有答案的。</li>
 </ul>
-<p>因此，我們可以導出以下式子<br>$$<br>distance(a, b) &#x3D;<br>\begin{cases}<br>\overline{AB} - r_{a} - r_{b}, &amp; \text{if $\overline{AB}$ &gt; $r_{a}$ + $r_{b}$} \\<br>0, &amp; \text{if $\overline{AB}$ $\le$  $r_{a}$ + $r_{b}$}<br>\end{cases}<br>$$<br>建完圖後這題就變成單純的最短路啦，我們只要利用floyd warshall或任何求最短路的演算法，找出起點與終點的距離再乘以10就是答案了。</p>
 <hr>
 <ul>
 <li>💻 程式碼<blockquote>
-<p>10ms</p>
+<p>160ms</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">dis_cal</span><span class="hljs-params">(<span class="hljs-type">int</span> x1, <span class="hljs-type">int</span> y1, <span class="hljs-type">int</span> z1, <span class="hljs-type">int</span> x2, <span class="hljs-type">int</span> y2, <span class="hljs-type">int</span> z2)</span></span>&#123;<br>	<span class="hljs-type">double</span> x = x1 - x2, y = y1 - y2, z = z1 - z2;<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">sqrt</span>(x * x + y * y + z * z);<br>&#125;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">holes</span>&#123;<br>	<span class="hljs-type">int</span> x, y, z, r;<br>&#125;;<br><br>holes arr[<span class="hljs-number">105</span>];<br><span class="hljs-type">double</span> dis[<span class="hljs-number">105</span>][<span class="hljs-number">105</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-type">int</span> n;<br>	<span class="hljs-type">int</span> kase = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">while</span>(cin &gt;&gt; n &amp;&amp; n != <span class="hljs-number">-1</span>)&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>			cin &gt;&gt; arr[i].x &gt;&gt; arr[i].y &gt;&gt; arr[i].z &gt;&gt; arr[i].r;<br>		&#125;<br>		<span class="hljs-comment">// 起點與終點可以視為半徑=0的洞</span><br>		cin &gt;&gt; arr[<span class="hljs-number">0</span>].x &gt;&gt; arr[<span class="hljs-number">0</span>].y &gt;&gt; arr[<span class="hljs-number">0</span>].z;<br>		arr[<span class="hljs-number">0</span>].r = <span class="hljs-number">0</span>;<br>		cin &gt;&gt; arr[n + <span class="hljs-number">1</span>].x &gt;&gt; arr[n + <span class="hljs-number">1</span>].y &gt;&gt; arr[n + <span class="hljs-number">1</span>].z;<br>		arr[n + <span class="hljs-number">1</span>].r = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n + <span class="hljs-number">2</span>; i++)&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n + <span class="hljs-number">2</span>; j++)&#123;<br>				dis[i][j] = INT_MAX;<br>			&#125;<br>		&#125;<br>		<span class="hljs-comment">// 利用公式，紀錄任兩點的距離。</span><br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n + <span class="hljs-number">2</span>; i++)&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n + <span class="hljs-number">2</span>; j++)&#123;<br>				<span class="hljs-type">double</span> d = <span class="hljs-built_in">dis_cal</span>(arr[i].x, arr[i].y, arr[i].z, arr[j].x, arr[j].y, arr[j].z);<br>				<span class="hljs-keyword">if</span>(d &lt;= arr[i].r + arr[j].r)<br>					dis[i][j] = <span class="hljs-number">0</span>;<br>				<span class="hljs-keyword">else</span>&#123;<br>					dis[i][j] = d - arr[i].r - arr[j].r;<br>				&#125;<br><br>			&#125;<br>		&#125;<br>		<span class="hljs-comment">// floyd warshall</span><br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; n + <span class="hljs-number">2</span>; k++)&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n + <span class="hljs-number">2</span>; i++)&#123;<br>				<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n + <span class="hljs-number">2</span>; j++)&#123;<br>					dis[i][j] = <span class="hljs-built_in">min</span>(dis[i][j], dis[i][k] + dis[k][j]);<br>				&#125;<br>			&#125;<br>		&#125;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Cheese %d: Travel time = %d sec\n&quot;</span>, ++kase, (<span class="hljs-type">int</span>)<span class="hljs-built_in">round</span>(dis[<span class="hljs-number">0</span>][n + <span class="hljs-number">1</span>] * <span class="hljs-number">10</span>));<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><br><span class="hljs-function">vector&lt;<span class="hljs-type">bool</span>&gt; <span class="hljs-title">prime_table</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-function">vector&lt;<span class="hljs-type">bool</span>&gt; <span class="hljs-title">p</span><span class="hljs-params">(<span class="hljs-number">35</span>, <span class="hljs-literal">true</span>)</span></span>;<br>	p[<span class="hljs-number">0</span>] = p[<span class="hljs-number">1</span>] = <span class="hljs-literal">false</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt; <span class="hljs-number">35</span>; i++)&#123;<br>		<span class="hljs-keyword">if</span>(p[i])&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = i * i; j &lt; <span class="hljs-number">35</span>; j += i)&#123;<br>				p[j] = <span class="hljs-literal">false</span>;<br>			&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> p;<br>&#125;<br><span class="hljs-type">bool</span> used[<span class="hljs-number">20</span>];<br><span class="hljs-type">int</span> n;<br>vector&lt;<span class="hljs-type">int</span>&gt;v;<br>vector&lt;<span class="hljs-type">bool</span>&gt;p;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">if</span>(v.<span class="hljs-built_in">size</span>() == n &amp;&amp; p[v.<span class="hljs-built_in">back</span>() + <span class="hljs-number">1</span>])&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;<br>			<span class="hljs-keyword">if</span>(i == <span class="hljs-number">0</span>)<br>				cout &lt;&lt; v[i];<br>			<span class="hljs-keyword">else</span><br>				cout &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; v[i];<br>		&#125;<br>		cout &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++)&#123;<br>		<span class="hljs-keyword">if</span>(!used[i])&#123;<br>			<span class="hljs-keyword">if</span>(p[v[v.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>] + i])&#123;<br>				v.<span class="hljs-built_in">emplace_back</span>(i);<br>				used[i] = <span class="hljs-literal">true</span>;<br>				<span class="hljs-built_in">dfs</span>();<br>				v.<span class="hljs-built_in">pop_back</span>();<br>				used[i] = <span class="hljs-literal">false</span>;<br>			&#125;<br>		&#125;<br>	&#125;<br><br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	p = <span class="hljs-built_in">prime_table</span>();<br>	<span class="hljs-type">int</span> kase = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">while</span>(cin &gt;&gt; n)&#123;<br>		<span class="hljs-built_in">memset</span>(used, <span class="hljs-literal">false</span>, <span class="hljs-built_in">sizeof</span>(used));<br>		v.<span class="hljs-built_in">clear</span>();<br>		v.<span class="hljs-built_in">emplace_back</span>(<span class="hljs-number">1</span>);<br>		used[<span class="hljs-number">1</span>] = <span class="hljs-literal">true</span>;<br>		<span class="hljs-keyword">if</span>(kase)<br>			cout &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>		cout &lt;&lt; <span class="hljs-string">&quot;Case &quot;</span> &lt;&lt; ++kase &lt;&lt; <span class="hljs-string">&quot;:\n&quot;</span>;<br>		<span class="hljs-keyword">if</span>((n &amp; <span class="hljs-number">1</span>) == <span class="hljs-number">0</span>)<br>			<span class="hljs-built_in">dfs</span>();<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <div class="note note-warning">
-            <p>答案記得乘以10後做round，否則會有精度問題QQ</p>
+            <p>在題目上沒提到連續兩個case間要換行🤔</p>
           </div></li>
 </ul>
 <hr>
 <ul>
-<li>🧠 心得<br>記得這是某次我們學校自辦賽的題目，當初做完這題的時候一直WA，找不到自己哪裡寫錯了，想說是哪裡想法有錯，最後被精度搞了一波🥲。<br>賽後發現自己的想法是正確的，只差在取round的部分，就想在這邊分享給大家啦～</li>
+<li>🧠 心得<br>昨天社團請了外部講師來講數論這個主題，講到後來我真的差點瘋了，後半部分真的完全聽不懂，有一半時間都在看著投影片發呆，剛好我又坐在最前面，超級尷尬的。高中時我一直自認為數學還不錯，上了大學後才發現自己的數學其實根本就不太好QQ，要多加油了～</li>
 </ul>
 <hr>
 
@@ -376,13 +355,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Graph/">#Graph</a>
-      
         <a href="/tags/cpp/">#cpp</a>
       
-        <a href="/tags/Floyd-Warshall/">#Floyd Warshall</a>
+        <a href="/tags/Backtracking/">#Backtracking</a>
       
-        <a href="/tags/Shortest-Path/">#Shortest Path</a>
+        <a href="/tags/Prime/">#Prime</a>
       
     </div>
   
@@ -394,8 +371,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>UVa01001 Say Cheese</div>
-      <div>http://example.com/2022/08/15/20220815/</div>
+      <div>UVa00524 Prime Ring Problem</div>
+      <div>http://example.com/2022/08/21/20220821/</div>
     </div>
     <div class="license-meta">
       
@@ -407,7 +384,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>August 15, 2022</div>
+          <div>August 21, 2022</div>
         </div>
       
       
@@ -437,18 +414,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/18/20220818/" title="父親節快樂">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">父親節快樂</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/13/20220813/" title="UVa00452 Project Scheduling">
-                        <span class="hidden-mobile">UVa00452 Project Scheduling</span>
+                      <a href="/2022/08/20/20220820/" title="你現在過得好嗎">
+                        <span class="hidden-mobile">你現在過得好嗎</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -466,8 +437,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2022/08/15/20220815/';
-          this.page.identifier = '/2022/08/15/20220815/';
+          this.page.url = 'http://example.com/2022/08/21/20220821/';
+          this.page.identifier = '/2022/08/21/20220821/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
