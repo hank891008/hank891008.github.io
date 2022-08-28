@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>UVa10721 Bar Codes</title>
+    <link href="/2022/08/28/20220828/"/>
+    <url>/2022/08/28/20220828/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1662">題目連結</a></p><hr><ul><li>❗️ 題意<br>bar codes是由黑色與白色的線組合而成，給定n, k, m，分別代表共有n條線，k個bar(分為黑色區域與白色區域，且必定黑白相間，一開始為黑色區域)，每個bar最多由m條線組成，請求給定條件下的所有可能數量。</li></ul><hr><ul><li>✔️ 題解<br>再開始題解前，我可以先來思考一個問題</li><li>舉個例子：假設我們有無限個1元、2元、3元的硬幣，共有幾種方法可以組合出5元?<ul><li>Ans:5(11111, 1112, 113, 122, 23)</li></ul></li><li>但其實我們可以透過轉換這個問題為求可能的方法數，變成$(1+x+x^2+x^3+x^4+x^5+..)(1+x^2+x^4+..)(1+x^3+x^6+..)&#x3D;a_0+a_1x+a_2x^2+…$的解中$x^5$的係數。且由於三個括號中只要x的次方大於5就不會影響到$x^5$的答案，因此我們可以省略成$(1+x+x^2+x^3+x^4+x^5)(1+x^2+x^4)(1+x^3)&#x3D;a_0+a_1x+a_2x^2+…$，而這個多項式$x^5$的係數為5，也與我們的答案是一樣的。(<a href="https://stat.nuk.edu.tw/cbme/discrete/disc_math/ch4.pdf">更多詳細內容可以參考這裡</a>)</li><li>生成函數到底與這題有什麼關係呢？其實我們可以想像區間其實就是上面例子中的無限個1元，而最高次其實就是m，並且由於我們的區間至少要有一個，所以並沒有常數項。因此此題就變成了：<br>$(x+x^2+x^3+..+x^m)^k &#x3D; a_0x^k+a_1x^{k+1}+a_2x^{k+2}+..$在$x^n$的係數為何?我們還可以將x項提出來，變成$x^k(1+x+x^2+..+x^{m - 1})^k &#x3D; x^k(a_0+a_1x+a_2x^2+…)$，並左右同除以$x^k$，最後就得到了$(1+x+x^2+..+x^{m - 1})^k &#x3D; (a_0+a_1x+a_2x^2+…)$，而我們就變成求$x^{n-k}$的係數了。</li></ul><hr><ul><li>💻 程式碼<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">using</span> LL = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><br><span class="hljs-function">vector&lt;LL&gt; <span class="hljs-title">mul</span><span class="hljs-params">(vector&lt;LL&gt; v, vector&lt;LL&gt; base)</span></span>&#123;<br><span class="hljs-function">vector&lt;LL&gt; <span class="hljs-title">ans</span><span class="hljs-params">((<span class="hljs-type">int</span>)v.size() + (<span class="hljs-type">int</span>)base.size() - <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)</span></span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; (<span class="hljs-type">int</span>)v.<span class="hljs-built_in">size</span>(); i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; (<span class="hljs-type">int</span>)base.<span class="hljs-built_in">size</span>(); j++)&#123;<br>ans[i + j] += v[i] * base[j];<br>&#125;<br>&#125;<br><span class="hljs-keyword">return</span> ans;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-type">int</span> n, k, m;<br><span class="hljs-keyword">while</span>(cin &gt;&gt; n &gt;&gt; k &gt;&gt; m)&#123;<br><span class="hljs-keyword">if</span>(k * m &lt; n || n &lt; k)&#123;<br>cout &lt;&lt; <span class="hljs-string">&quot;0\n&quot;</span>;<br><span class="hljs-keyword">continue</span>;<br>&#125;<br>vector&lt;LL&gt;<span class="hljs-built_in">v</span>(m, <span class="hljs-number">1</span>);<br>vector&lt;LL&gt;<span class="hljs-built_in">base</span>(m, <span class="hljs-number">1</span>);<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; k - <span class="hljs-number">1</span>; i++)&#123;<br>v = <span class="hljs-built_in">mul</span>(v, base);<br>&#125;<br>cout &lt;&lt; v[n - k] &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><div class="note note-warning">            <p>當bar的最長線條數乘以bar的數量小於線條的數量或者線條的數量小於bar的數量都是0</p>          </div></li></ul><hr><ul><li>🧠 心得<br>這題大部分的做法都是利用DP的方式來做，連老師介紹這題時也是利用DP。但有一位非常厲害的同學給了給了利用生成函數的想法(在此請收下我的膝蓋🧎‍♂️)，而我也應證了此想法是正確的。</li></ul><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>UVa</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>cpp</tag>
+      
+      <tag>Generating Function</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>模型train不起來</title>
     <link href="/2022/08/25/20220825/"/>
     <url>/2022/08/25/20220825/</url>
