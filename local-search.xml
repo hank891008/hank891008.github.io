@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>UVa10931 Parity</title>
+    <link href="/2022/08/30/20220830/"/>
+    <url>/2022/08/30/20220830/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1872">題目連結</a></p><hr><ul><li>❗️ 題意<br>給定數字n，請求出n這個數字的二進位為何與它的二進位數字有幾個1</li></ul><hr><ul><li>✔️ 題解<br>我們可以直接利用模擬的方式，每次就是先看這個數字除以2的餘數為何，之後再除以2就好，在過程中當餘數為1時可以紀錄下來，就是二進位數字中共有多少一。</li></ul><hr><ul><li>💻 程式碼<blockquote><p>10ms</p></blockquote><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-type">int</span> num;<br><span class="hljs-keyword">while</span>(cin &gt;&gt; num &amp;&amp; num != <span class="hljs-number">0</span>)&#123;<br>string st;<br><span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">while</span>(num != <span class="hljs-number">0</span>)&#123;<br><span class="hljs-keyword">if</span>(num % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)&#123;<br>st += <span class="hljs-string">&#x27;0&#x27;</span>;<br>&#125;<br><span class="hljs-keyword">else</span>&#123;<br>cnt++;<br>st +=<span class="hljs-string">&#x27;1&#x27;</span>;<br>&#125;<br>num /= <span class="hljs-number">2</span>;<br>&#125;<br><span class="hljs-built_in">reverse</span>(st.<span class="hljs-built_in">begin</span>(), st.<span class="hljs-built_in">end</span>());<br>cout &lt;&lt; <span class="hljs-string">&quot;The parity of &quot;</span> &lt;&lt; st &lt;&lt; <span class="hljs-string">&quot; is &quot;</span> &lt;&lt; cnt &lt;&lt; <span class="hljs-string">&quot; (mod 2).\n&quot;</span>;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>也可以利用python的bin來簡化程式碼</p><blockquote><p>10ms</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>num = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>())<br><span class="hljs-keyword">if</span> num == <span class="hljs-number">0</span>:<br><span class="hljs-keyword">break</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;The parity of <span class="hljs-subst">&#123;<span class="hljs-built_in">str</span>(<span class="hljs-built_in">bin</span>(num))[<span class="hljs-number">2</span>:]&#125;</span> is <span class="hljs-subst">&#123;<span class="hljs-built_in">str</span>(<span class="hljs-built_in">bin</span>(num)).count(<span class="hljs-string">&quot;1&quot;</span>)&#125;</span> (mod 2).&#x27;</span>)<br></code></pre></td></tr></table></figure></li></ul><hr><ul><li>🧠 心得<br>自從開始做畢業專題後寫python的時間比寫c++的時間多太多了，程式語言就是個工具，不同場合需要使用的語言本來就不同，對我來說c++多半是拿來解題較多，而其他時間多是使用python。</li></ul><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>UVa</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>cpp</tag>
+      
+      <tag>python</tag>
+      
+      <tag>binary</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>UVa10721 Bar Codes</title>
     <link href="/2022/08/28/20220828/"/>
     <url>/2022/08/28/20220828/</url>

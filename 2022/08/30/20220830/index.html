@@ -16,26 +16,26 @@
   <meta name="author" content="Hank Hsu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="這禮拜算是遇到了一些低潮，由於資源實在不太夠了，目前我一個人所使用GPU的ram至少需要36G左右，又加上我是一次跑很多個小模型(不同風格需要分開train)，目前的GPU是兩張3090，仍然不夠我們用，只能Deep Learning真的都是用錢燒出來的哈哈哈哈。而另一點是我找到了一個5000張content與5000張style的dataset，我的模型對於還原content與style雖然有">
+    <meta name="description" content="題目連結   ❗️ 題意給定數字n，請求出n這個數字的二進位為何與它的二進位數字有幾個1    ✔️ 題解我們可以直接利用模擬的方式，每次就是先看這個數字除以2的餘數為何，之後再除以2就好，在過程中當餘數為1時可以紀錄下來，就是二進位數字中共有多少一。    💻 程式碼 10ms  12345678910111213141516171819202122#include &lt;bits&#x2F;stdc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模型train不起來">
-<meta property="og:url" content="http://example.com/2022/08/25/20220825/index.html">
+<meta property="og:title" content="UVa10931 Parity">
+<meta property="og:url" content="http://example.com/2022/08/30/20220830/index.html">
 <meta property="og:site_name" content="Hank&#39;s Blog">
-<meta property="og:description" content="這禮拜算是遇到了一些低潮，由於資源實在不太夠了，目前我一個人所使用GPU的ram至少需要36G左右，又加上我是一次跑很多個小模型(不同風格需要分開train)，目前的GPU是兩張3090，仍然不夠我們用，只能Deep Learning真的都是用錢燒出來的哈哈哈哈。而另一點是我找到了一個5000張content與5000張style的dataset，我的模型對於還原content與style雖然有">
+<meta property="og:description" content="題目連結   ❗️ 題意給定數字n，請求出n這個數字的二進位為何與它的二進位數字有幾個1    ✔️ 題解我們可以直接利用模擬的方式，每次就是先看這個數字除以2的餘數為何，之後再除以2就好，在過程中當餘數為1時可以紀錄下來，就是二進位數字中共有多少一。    💻 程式碼 10ms  12345678910111213141516171819202122#include &lt;bits&#x2F;stdc">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-25T10:07:00.000Z">
-<meta property="article:modified_time" content="2022-08-25T10:25:39.526Z">
+<meta property="article:published_time" content="2022-08-30T07:14:32.000Z">
+<meta property="article:modified_time" content="2022-08-30T07:36:00.607Z">
 <meta property="article:author" content="Hank Hsu">
-<meta property="article:tag" content="深度學習">
-<meta property="article:tag" content="畢業專題">
-<meta property="article:tag" content="廢話">
+<meta property="article:tag" content="cpp">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="binary">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>模型train不起來 - Hank&#39;s Blog</title>
+  <title>UVa10931 Parity - Hank&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="模型train不起來"></span>
+            <span id="subtitle" data-typed-text="UVa10931 Parity"></span>
           
         </div>
 
@@ -215,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-25 18:07" pubdate>
-          August 25, 2022 pm
+        <time datetime="2022-08-30 15:14" pubdate>
+          August 30, 2022 pm
         </time>
       </span>
     
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          374 words
+          836 words
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          4 mins
+          7 mins
         
       </span>
     
@@ -284,12 +284,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">模型train不起來</h1>
+            <h1 style="display: none">UVa10931 Parity</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on 5 days ago
+                    Last updated on a few seconds ago
                   
                 
               </p>
@@ -297,8 +297,31 @@
             
               <div class="markdown-body">
                 
-                <hr>
-<p>這禮拜算是遇到了一些低潮，由於資源實在不太夠了，目前我一個人所使用GPU的ram至少需要36G左右，又加上我是一次跑很多個小模型(不同風格需要分開train)，目前的GPU是兩張3090，仍然不夠我們用，只能Deep Learning真的都是用錢燒出來的哈哈哈哈。<br>而另一點是我找到了一個5000張content與5000張style的dataset，我的模型對於還原content與style雖然有些模糊，但還算可以接受，至於他們所組合出來的合成照就是灰灰的一片，目前我認為可能有兩種原因，第一種純粹是還沒train完(大約只跑了2%左右)，再來就是我的模型餐數量太少了，沒有辦法完全學習好。我自己還不知道要怎麼解決。我個人是傾向第二種，因此只好先想辦法再拿更小的資料集來印證我的想法。最近也會盡量多找一些paper來看，希望能找到一些修改上的靈感。</p>
+                <p><a target="_blank" rel="noopener" href="https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1872">題目連結</a></p>
+<hr>
+<ul>
+<li>❗️ 題意<br>給定數字n，請求出n這個數字的二進位為何與它的二進位數字有幾個1</li>
+</ul>
+<hr>
+<ul>
+<li>✔️ 題解<br>我們可以直接利用模擬的方式，每次就是先看這個數字除以2的餘數為何，之後再除以2就好，在過程中當餘數為1時可以紀錄下來，就是二進位數字中共有多少一。</li>
+</ul>
+<hr>
+<ul>
+<li>💻 程式碼<blockquote>
+<p>10ms</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-type">int</span> num;<br>	<span class="hljs-keyword">while</span>(cin &gt;&gt; num &amp;&amp; num != <span class="hljs-number">0</span>)&#123;<br>		string st;<br>		<span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">while</span>(num != <span class="hljs-number">0</span>)&#123;<br>			<span class="hljs-keyword">if</span>(num % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)&#123;<br>				st += <span class="hljs-string">&#x27;0&#x27;</span>;<br>			&#125;<br>			<span class="hljs-keyword">else</span>&#123;<br>				cnt++;<br>				st +=<span class="hljs-string">&#x27;1&#x27;</span>;<br>			&#125;<br>			num /= <span class="hljs-number">2</span>;<br>		&#125;<br>		<span class="hljs-built_in">reverse</span>(st.<span class="hljs-built_in">begin</span>(), st.<span class="hljs-built_in">end</span>());<br>		cout &lt;&lt; <span class="hljs-string">&quot;The parity of &quot;</span> &lt;&lt; st &lt;&lt; <span class="hljs-string">&quot; is &quot;</span> &lt;&lt; cnt &lt;&lt; <span class="hljs-string">&quot; (mod 2).\n&quot;</span>;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>也可以利用python的bin來簡化程式碼</p>
+<blockquote>
+<p>10ms</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>	num = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>())<br>	<span class="hljs-keyword">if</span> num == <span class="hljs-number">0</span>:<br>		<span class="hljs-keyword">break</span><br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;The parity of <span class="hljs-subst">&#123;<span class="hljs-built_in">str</span>(<span class="hljs-built_in">bin</span>(num))[<span class="hljs-number">2</span>:]&#125;</span> is <span class="hljs-subst">&#123;<span class="hljs-built_in">str</span>(<span class="hljs-built_in">bin</span>(num)).count(<span class="hljs-string">&quot;1&quot;</span>)&#125;</span> (mod 2).&#x27;</span>)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<ul>
+<li>🧠 心得<br>自從開始做畢業專題後寫python的時間比寫c++的時間多太多了，程式語言就是個工具，不同場合需要使用的語言本來就不同，對我來說c++多半是拿來解題較多，而其他時間多是使用python。</li>
+</ul>
 <hr>
 
                 
@@ -318,7 +341,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%AD%B8%E7%BF%92%E7%B4%80%E9%8C%84/" class="category-chain-item">學習紀錄</a>
+  <a href="/categories/UVa/" class="category-chain-item">UVa</a>
   
   
 
@@ -333,11 +356,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92/">#深度學習</a>
+        <a href="/tags/cpp/">#cpp</a>
       
-        <a href="/tags/%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/">#畢業專題</a>
+        <a href="/tags/python/">#python</a>
       
-        <a href="/tags/%E5%BB%A2%E8%A9%B1/">#廢話</a>
+        <a href="/tags/binary/">#binary</a>
       
     </div>
   
@@ -349,8 +372,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>模型train不起來</div>
-      <div>http://example.com/2022/08/25/20220825/</div>
+      <div>UVa10931 Parity</div>
+      <div>http://example.com/2022/08/30/20220830/</div>
     </div>
     <div class="license-meta">
       
@@ -362,7 +385,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>August 25, 2022</div>
+          <div>August 30, 2022</div>
         </div>
       
       
@@ -392,18 +415,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/28/20220828/" title="UVa10721 Bar Codes">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">UVa10721 Bar Codes</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/23/20220823/" title="CycleGAN">
-                        <span class="hidden-mobile">CycleGAN</span>
+                      <a href="/2022/08/28/20220828/" title="UVa10721 Bar Codes">
+                        <span class="hidden-mobile">UVa10721 Bar Codes</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -421,8 +438,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2022/08/25/20220825/';
-          this.page.identifier = '/2022/08/25/20220825/';
+          this.page.url = 'http://example.com/2022/08/30/20220830/';
+          this.page.identifier = '/2022/08/30/20220830/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
@@ -482,6 +499,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -672,6 +695,40 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
