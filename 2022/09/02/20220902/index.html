@@ -16,29 +16,25 @@
   <meta name="author" content="Hank Hsu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="CycleGAN  📝 背景知識 Generative Adversarial Networks   ❗️ Introduction成對的資料是非常難以搜集的(有點像監督式學習的方式，可以參考pix2pix)，而CycleGAN只需要兩個domain的資料(例如一群馬的data與一群斑馬的data)，就可以完成兩個domain內的互相轉換，這不僅降低了資料搜集的難度，也增廣了能應用的層面。">
+    <meta name="description" content="今天被學生會邀請回去介紹CPC社團，原本2:20就準備要換我講了，但中間發生一些事，且中間又臨時加了理工學院院院長的介紹，我覺得院長非常健談，只用一頁投影片就講了好久哈哈哈XD。之後換到我，我就先在乙班先介紹，中間都還算順利，而到甲班後，由於我們社團的指導老師剛好是甲班班導，老師就剛好坐在後面，導致我覺得我講的綁手綁腳的。這次新生訓練讓我深深感受到，我在輔大的時間只剩下不到一年了，再過個幾年我就">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CycleGAN">
-<meta property="og:url" content="http://example.com/2022/08/23/20220823/index.html">
+<meta property="og:title" content="新生訓練">
+<meta property="og:url" content="http://example.com/2022/09/02/20220902/index.html">
 <meta property="og:site_name" content="Hank&#39;s Blog">
-<meta property="og:description" content="CycleGAN  📝 背景知識 Generative Adversarial Networks   ❗️ Introduction成對的資料是非常難以搜集的(有點像監督式學習的方式，可以參考pix2pix)，而CycleGAN只需要兩個domain的資料(例如一群馬的data與一群斑馬的data)，就可以完成兩個domain內的互相轉換，這不僅降低了資料搜集的難度，也增廣了能應用的層面。">
+<meta property="og:description" content="今天被學生會邀請回去介紹CPC社團，原本2:20就準備要換我講了，但中間發生一些事，且中間又臨時加了理工學院院院長的介紹，我覺得院長非常健談，只用一頁投影片就講了好久哈哈哈XD。之後換到我，我就先在乙班先介紹，中間都還算順利，而到甲班後，由於我們社團的指導老師剛好是甲班班導，老師就剛好坐在後面，導致我覺得我講的綁手綁腳的。這次新生訓練讓我深深感受到，我在輔大的時間只剩下不到一年了，再過個幾年我就">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/20220823/first_page.png">
-<meta property="og:image" content="http://example.com/img/20220823/pair.png">
-<meta property="og:image" content="http://example.com/img/20220823/structure.png">
-<meta property="og:image" content="http://example.com/img/20220823/result.png">
-<meta property="article:published_time" content="2022-08-23T07:41:32.000Z">
-<meta property="article:modified_time" content="2022-08-23T10:25:36.810Z">
+<meta property="article:published_time" content="2022-09-02T11:00:49.000Z">
+<meta property="article:modified_time" content="2022-09-02T11:11:41.260Z">
 <meta property="article:author" content="Hank Hsu">
-<meta property="article:tag" content="GAN">
+<meta property="article:tag" content="廢話">
+<meta property="article:tag" content="心情">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/20220823/first_page.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>CycleGAN - Hank&#39;s Blog</title>
+  <title>新生訓練 - Hank&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="CycleGAN"></span>
+            <span id="subtitle" data-typed-text="新生訓練"></span>
           
         </div>
 
@@ -218,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-23 15:41" pubdate>
-          August 23, 2022 pm
+        <time datetime="2022-09-02 19:00" pubdate>
+          September 2, 2022 pm
         </time>
       </span>
     
@@ -230,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k words
+          235 words
         
       </span>
     
@@ -241,7 +237,7 @@
         
         
         
-          12 mins
+          2 mins
         
       </span>
     
@@ -287,12 +283,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">CycleGAN</h1>
+            <h1 style="display: none">新生訓練</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on 10 days ago
+                    Last updated on a few seconds ago
                   
                 
               </p>
@@ -301,49 +297,7 @@
               <div class="markdown-body">
                 
                 <hr>
-<h1 id="CycleGAN"><a href="#CycleGAN" class="headerlink" title="CycleGAN"></a><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1703.10593.pdf">CycleGAN</a></h1><p><img src="/./img/20220823/first_page.png" srcset="/img/loading.gif" lazyload></p>
-<hr>
-<h2 id="📝-背景知識"><a href="#📝-背景知識" class="headerlink" title="📝 背景知識"></a>📝 背景知識</h2><ul>
-<li>Generative Adversarial Networks</li>
-</ul>
-<hr>
-<h2 id="❗️-Introduction"><a href="#❗️-Introduction" class="headerlink" title="❗️ Introduction"></a>❗️ Introduction</h2><p>成對的資料是非常難以搜集的(有點像監督式學習的方式，可以參考pix2pix)，而CycleGAN只需要兩個domain的資料(例如一群馬的data與一群斑馬的data)，就可以完成兩個domain內的互相轉換，這不僅降低了資料搜集的難度，也增廣了能應用的層面。<br><img src="/./img/20220823/pair.png" srcset="/img/loading.gif" lazyload alt="paired data v.s unpaired data"></p>
-<hr>
-<h2 id="🏆-Goal"><a href="#🏆-Goal" class="headerlink" title="🏆 Goal"></a>🏆 Goal</h2><ul>
-<li>Generator<ul>
-<li>我們以馬與斑馬作為例子，假設他們的資料及分別稱為$X$與$Y$，那我們要做的事情就是訓練兩個Generator$G$與$F$，我們希望 $X$經過 $G$後盡可能與$Y$越像越好，且$Y$經過$F$後也要可能與$X$越像越好。寫成數學一點就是$G(x)\approx y$，且$F(y)\approx x$ ($x \in X$ and $y \in Y$)。</li>
-</ul>
-</li>
-<li>Discriminator<ul>
-<li>要如何衡量生成器的好壞，就輪到我們的Discriminator出場啦，我們一樣有兩個Discrminator $D_X$與$D_Y$，分別是判斷$F(y)$與$x$是否足夠相似與$G(x)$與$y$是否足夠相似，其實就有點像是在train一個classifier的感覺，因此整體的架構如下：</li>
-<li><img src="/./img/20220823/structure.png" srcset="/img/loading.gif" lazyload alt="架構"></li>
-</ul>
-</li>
-<li>Loss Function<ul>
-<li>Adversarial Loss<ul>
-<li>$\mathcal{L}_{GAN}(G, D_Y, X, Y) &#x3D; \mathbb{E} _{p \sim data(y)}[\log (D_Y(y))] + \mathbb{E} _{p \sim data(x)}[\log (1 - D_Y(G(x)))] $</li>
-<li>我們以$G$(使x mapping to y)與$D_Y$(分辨$G(x)$與$y$)作為例子，這個loss的主要功用就是讓最的$G(x)$與$y$越像好，對於Generator來說，我們會希望去minimize這個loss，而Discrminator則是相反，希望去maximize這個loss，對於$F$與$D_X$也是一樣的。</li>
-</ul>
-</li>
-<li>Cycle Consistency Loss<ul>
-<li>$\mathcal{L}_{cyc}(G, F) &#x3D; \mathbb{E} _{p \sim data(x)}[||F(G(x)) - x||_1] + \mathbb{E} _{p \sim data(y)}[||G(F(y)) - y||_1]$</li>
-<li>單單只有Adversarial Loss是無法讓整個model有好效果的，因為我們無法確定$x$與$G(x)$是否足夠類似，因此我們需要利用來回映射(以馬為例子就是：馬➡️斑馬➡️馬)，也就是希望讓$x$與$F(G(x))$越像越好。<div class="note note-warning">
-            <p>作者在論文中有提到，相較起來L1的效果是最好的</p>
-          </div></li>
-</ul>
-</li>
-<li>Identity Loss(optional)<ul>
-<li>$\mathcal{L}_{identity}(G, F) &#x3D; \mathbb{E} _{p \sim data(y)}[||G(y) - y||_1] + \mathbb{E} _{p \sim data(x)}[||F(x) - x||_1]$</li>
-<li>這個loss作者只簡單地提及了一下，但它也是一個非常重要的loss。我們知道$G$是用來生成斑馬的Generator，因此若我們將斑馬$y$丟進這個Generator後，出來的結果也應該是斑馬，因此這個loss就是在最小化這件事。<div class="note note-danger">
-            <p>當初我在報這篇論文給教授聽時報告錯這個部分，真尷尬：）</p>
-          </div></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="🍎-Result"><a href="#🍎-Result" class="headerlink" title="🍎 Result"></a>🍎 Result</h2><p><img src="/./img/20220823/result.png" srcset="/img/loading.gif" lazyload></p>
+<p>今天被學生會邀請回去介紹CPC社團，原本2:20就準備要換我講了，但中間發生一些事，且中間又臨時加了理工學院院院長的介紹，我覺得院長非常健談，只用一頁投影片就講了好久哈哈哈XD。之後換到我，我就先在乙班先介紹，中間都還算順利，而到甲班後，由於我們社團的指導老師剛好是甲班班導，老師就剛好坐在後面，導致我覺得我講的綁手綁腳的。這次新生訓練讓我深深感受到，我在輔大的時間只剩下不到一年了，再過個幾年我就要出社會了，目前的我還實在不知道要如何面對這件事情，只能走一步算一步了。</p>
 <hr>
 
                 
@@ -363,7 +317,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Paper/" class="category-chain-item">Paper</a>
+  <a href="/categories/%E9%80%B1%E8%A8%98/" class="category-chain-item">週記</a>
   
   
 
@@ -378,7 +332,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/GAN/">#GAN</a>
+        <a href="/tags/%E5%BB%A2%E8%A9%B1/">#廢話</a>
+      
+        <a href="/tags/%E5%BF%83%E6%83%85/">#心情</a>
       
     </div>
   
@@ -390,8 +346,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>CycleGAN</div>
-      <div>http://example.com/2022/08/23/20220823/</div>
+      <div>新生訓練</div>
+      <div>http://example.com/2022/09/02/20220902/</div>
     </div>
     <div class="license-meta">
       
@@ -403,7 +359,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>August 23, 2022</div>
+          <div>September 2, 2022</div>
         </div>
       
       
@@ -433,18 +389,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/25/20220825/" title="模型train不起來">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">模型train不起來</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/21/20220821/" title="UVa00524 Prime Ring Problem">
-                        <span class="hidden-mobile">UVa00524 Prime Ring Problem</span>
+                      <a href="/2022/08/30/20220830/" title="UVa10931 Parity">
+                        <span class="hidden-mobile">UVa10931 Parity</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -462,8 +412,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2022/08/23/20220823/';
-          this.page.identifier = '/2022/08/23/20220823/';
+          this.page.url = 'http://example.com/2022/09/02/20220902/';
+          this.page.identifier = '/2022/09/02/20220902/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
@@ -523,12 +473,6 @@
 
 
   
-
-
-  
-  
-
-
 
 
 
@@ -719,40 +663,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
