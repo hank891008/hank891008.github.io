@@ -8,7 +8,7 @@
     <link href="/2022/09/04/20220904/"/>
     <url>/2022/09/04/20220904/</url>
     
-    <content type="html"><![CDATA[<hr><p>最近在測試我的模型，我使用了兩種版本，一種是利用Feature Disentanglement的方式，透過將Content與Style分開，之後再將Content image的content feature與Style image的style feature合併。第二種則是透過AdaIN，將Content image去風格化後再將style的風格加在上面。雖說兩者的概念上是類似的，但實際在寫時所用的方法差蠻多的(之後有空再來介紹AdaIN)。這週與老師meeting時老師也提到我怎麼用的方法兩週內差那麼多XD，其實是我自己不小心把第一種方法寫壞了，以為我的模型可能不適合跑大資料集(事實證明我錯了)。而兩種模型跑出來有一些微妙的差異，各有好壞，但第一種模型的缺點也很明顯，有時會合成的image中會有Style image裡面特徵，而那個特徵並沒有很好的融合在圖片中，反而會使圖片看起來就像是有雜訊一樣。等之後的模型全部train完再來看一下結果如何ㄌ～</p><hr>]]></content>
+    <content type="html"><![CDATA[<hr><p>最近在測試我的模型，我使用了兩種版本，一種是利用Feature Disentanglement的方式，透過將Content與Style分開，之後再將Content image的content feature與Style image的style feature合併。第二種則是透過AdaIN，將Content image去風格化後再將style的風格加在上面。雖說兩者的概念上是類似的，但實際在寫時所用的方法差蠻多的(之後有空再來介紹AdaIN)。這週與老師meeting時老師也提到我怎麼用的方法兩週內差那麼多XD，其實是我自己不小心把第一種方法寫壞了，以為我的模型可能不適合跑大資料集(事實證明我錯了，可以看「模型train不起來」這篇)。而兩種模型跑出來有一些微妙的差異，各有好壞，但第一種模型的缺點也很明顯，有時會合成的image中會有Style image裡面特徵，而那個特徵並沒有很好的融合在圖片中，反而會使圖片看起來就像是有雜訊一樣。等之後的模型全部train完再來看一下結果如何ㄌ～</p><hr>]]></content>
     
     
     <categories>
@@ -24,9 +24,9 @@
       
       <tag>畢業專題</tag>
       
-      <tag>Style Transfer</tag>
+      <tag>Autoencoder</tag>
       
-      <tag>autoencoder</tag>
+      <tag>Style Transfer</tag>
       
     </tags>
     
