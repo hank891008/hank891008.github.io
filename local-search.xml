@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>開學第一週</title>
+    <link href="/2022/09/08/20220908/"/>
+    <url>/2022/09/08/20220908/</url>
+    
+    <content type="html"><![CDATA[<hr><p>這週是開學第一週，雖說我這學期的學分比過去少了很多，但我認為反而工作量並沒有減少太多。最近又剛好遇到有學長問我是否有想要實習，是做電腦視覺那方面的，我個人其實還蠻感興趣的，但我非常擔心會因此而拖累到專題的進度，也十分害怕自己會忙不過來而導致其他事情被delay。因此我目前還在觀望，先試試看這陣子是否太忙，之後再來決定。這幾週陸續有推甄的消息出來了，而我的進度仍然還是只完成了個人簡歷，真的不知道自傳到底要寫什麼，好擔心啊。</p><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>週記</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>廢話</tag>
+      
+      <tag>心情</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>測試模型中...</title>
     <link href="/2022/09/04/20220904/"/>
     <url>/2022/09/04/20220904/</url>
@@ -267,13 +294,13 @@
     
     <tags>
       
-      <tag>Floyd Warshall</tag>
-      
-      <tag>Shortest Path</tag>
-      
       <tag>Graph</tag>
       
       <tag>cpp</tag>
+      
+      <tag>Floyd Warshall</tag>
+      
+      <tag>Shortest Path</tag>
       
     </tags>
     
@@ -298,13 +325,13 @@
     
     <tags>
       
-      <tag>Graph</tag>
-      
-      <tag>cpp</tag>
-      
       <tag>Topological Sort</tag>
       
       <tag>AOE Network</tag>
+      
+      <tag>Graph</tag>
+      
+      <tag>cpp</tag>
       
     </tags>
     
