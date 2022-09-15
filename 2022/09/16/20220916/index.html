@@ -17,26 +17,25 @@
   <meta name="author" content="Hank Hsu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="今天被學生會邀請回去介紹CPC社團，原本2:20就準備要換我講了，但中間發生一些事，且中間又臨時加了理工學院院院長的介紹，我覺得院長非常健談，只用一頁投影片就講了好久哈哈哈XD。之後換到我，我就先在乙班先介紹，中間都還算順利，而到甲班後，由於我們社團的指導老師剛好是甲班班導，老師就剛好坐在後面，導致我覺得我講的綁手綁腳的。這次新生訓練讓我深深感受到，我在輔大的時間只剩下不到一年了，再過個幾年我就">
+    <meta name="description" content="介紹大約在暑假的時候，Pytorch就宣布Apple Silicon的GPU將可以在做深度學習中使用，而這幾天我就稍微用了我的電腦測試一下M1 GPU對於訓練一個神經網路的效果與時間 建立conda環境 建立與進入環境   12conda create --name pytorch-with-m1 python&#x3D;3.8conda activate pytorch-with-m1  下載pytor">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新生訓練">
-<meta property="og:url" content="http://example.com/2022/09/02/20220902/index.html">
+<meta property="og:title" content="Apple Silicon在pytorch的GPU測試">
+<meta property="og:url" content="http://example.com/2022/09/16/20220916/index.html">
 <meta property="og:site_name" content="Hank&#39;s Blog">
-<meta property="og:description" content="今天被學生會邀請回去介紹CPC社團，原本2:20就準備要換我講了，但中間發生一些事，且中間又臨時加了理工學院院院長的介紹，我覺得院長非常健談，只用一頁投影片就講了好久哈哈哈XD。之後換到我，我就先在乙班先介紹，中間都還算順利，而到甲班後，由於我們社團的指導老師剛好是甲班班導，老師就剛好坐在後面，導致我覺得我講的綁手綁腳的。這次新生訓練讓我深深感受到，我在輔大的時間只剩下不到一年了，再過個幾年我就">
+<meta property="og:description" content="介紹大約在暑假的時候，Pytorch就宣布Apple Silicon的GPU將可以在做深度學習中使用，而這幾天我就稍微用了我的電腦測試一下M1 GPU對於訓練一個神經網路的效果與時間 建立conda環境 建立與進入環境   12conda create --name pytorch-with-m1 python&#x3D;3.8conda activate pytorch-with-m1  下載pytor">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-09-02T11:00:49.000Z">
-<meta property="article:modified_time" content="2022-09-12T14:18:22.834Z">
+<meta property="article:published_time" content="2022-09-15T16:38:54.000Z">
+<meta property="article:modified_time" content="2022-09-15T18:39:09.676Z">
 <meta property="article:author" content="Hank Hsu">
-<meta property="article:tag" content="廢話">
-<meta property="article:tag" content="心情">
-<meta property="article:tag" content="CPC">
+<meta property="article:tag" content="深度學習">
+<meta property="article:tag" content="pytorch">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>新生訓練 - Hank&#39;s Blog</title>
+  <title>Apple Silicon在pytorch的GPU測試 - Hank&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="新生訓練"></span>
+            <span id="subtitle" data-typed-text="Apple Silicon在pytorch的GPU測試"></span>
           
         </div>
 
@@ -216,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-02 19:00" pubdate>
-          September 2, 2022 pm
+        <time datetime="2022-09-16 00:38" pubdate>
+          September 16, 2022 am
         </time>
       </span>
     
@@ -228,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          235 words
+          3k words
         
       </span>
     
@@ -239,7 +238,7 @@
         
         
         
-          2 mins
+          26 mins
         
       </span>
     
@@ -285,12 +284,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">新生訓練</h1>
+            <h1 style="display: none">Apple Silicon在pytorch的GPU測試</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on 3 days ago
+                    Last updated on a few seconds ago
                   
                 
               </p>
@@ -299,7 +298,45 @@
               <div class="markdown-body">
                 
                 <hr>
-<p>今天被學生會邀請回去介紹CPC社團，原本2:20就準備要換我講了，但中間發生一些事，且中間又臨時加了理工學院院院長的介紹，我覺得院長非常健談，只用一頁投影片就講了好久哈哈哈XD。之後換到我，我就先在乙班先介紹，中間都還算順利，而到甲班後，由於我們社團的指導老師剛好是甲班班導，老師就剛好坐在後面，導致我覺得我講的綁手綁腳的。這次新生訓練讓我深深感受到，我在輔大的時間只剩下不到一年了，再過個幾年我就要出社會了，目前的我還實在不知道要如何面對這件事情，只能走一步算一步了。</p>
+<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>大約在暑假的時候，Pytorch就宣布Apple Silicon的GPU將可以在做深度學習中使用，而這幾天我就稍微用了我的電腦測試一下M1 GPU對於訓練一個神經網路的效果與時間</p>
+<h2 id="建立conda環境"><a href="#建立conda環境" class="headerlink" title="建立conda環境"></a>建立conda環境</h2><ul>
+<li>建立與進入環境   <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs applescript">conda create <span class="hljs-comment">--name pytorch-with-m1 python=3.8</span><br>conda <span class="hljs-built_in">activate</span> pytorch-<span class="hljs-keyword">with</span>-m1<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="下載pytorch-preview-version"><a href="#下載pytorch-preview-version" class="headerlink" title="下載pytorch preview version"></a>下載pytorch preview version</h2><ul>
+<li>到pytorch<a target="_blank" rel="noopener" href="https://pytorch.org/">官方網站</a>找要指令輸入複製(在Preview中)  <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">pip3 install <span class="hljs-comment">--pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="確認是否能使用Apple-Silicon的GPU"><a href="#確認是否能使用Apple-Silicon的GPU" class="headerlink" title="確認是否能使用Apple Silicon的GPU"></a>確認是否能使用Apple Silicon的GPU</h2><ul>
+<li>測試是否可以執行(若安裝成功會輸出True，tensor的device會是mps:0)<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">torch.backends.mps.is_available()<br>torch.zeros(<span class="hljs-number">1</span>).to(<span class="hljs-string">&#x27;mps&#x27;</span>)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="測試階段"><a href="#測試階段" class="headerlink" title="測試階段"></a>測試階段</h2><ul>
+<li>說明<ul>
+<li>我將所有random seed皆固定住，並使用辨識mnist的資料作為本次測試</li>
+<li>只需將device設定為’mps’ 或 device設定為’cpu’ 就可以分別測試使用GPU或使用CPU所需的時間</li>
+</ul>
+</li>
+<li>參數設定<ul>
+<li>epoch: 10</li>
+<li>optimizer: adam</li>
+<li>learning rate: 0.001</li>
+<li>batch size: 128</li>
+<li>critirion: cross entropy<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn<br><span class="hljs-keyword">from</span> torch.utils.data <span class="hljs-keyword">import</span> DataLoader<br><span class="hljs-keyword">from</span> torchvision <span class="hljs-keyword">import</span> transforms<br><span class="hljs-keyword">from</span> torchvision <span class="hljs-keyword">import</span> datasets<br><span class="hljs-keyword">from</span> qqdm <span class="hljs-keyword">import</span> qqdm<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> os, random, numpy <span class="hljs-keyword">as</span> np<br><br>start_time = time.time()<br><br><span class="hljs-comment"># fix random seed</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;seeded&#x27;</span>)<br>seed = <span class="hljs-number">0</span><br>os.environ[<span class="hljs-string">&quot;PYTHONHASHSEED&quot;</span>] = <span class="hljs-built_in">str</span>(seed)<br>random.seed(seed)<br>np.random.seed(seed)<br>torch.manual_seed(seed)<br>torch.cuda.manual_seed(seed)<br>torch.cuda.manual_seed_all(seed)<br><br>device = <span class="hljs-string">&quot;mps&quot;</span><br>train_data = datasets.MNIST(root=<span class="hljs-string">&#x27;./data&#x27;</span>, train=<span class="hljs-literal">True</span>, transform=transforms.ToTensor(), download=<span class="hljs-literal">True</span>)<br>train_loader = DataLoader(train_data, batch_size=<span class="hljs-number">128</span>)<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Model</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">super</span>(Model, self).__init__()<br>        self.net = nn.Sequential(<br>            nn.Conv2d(<span class="hljs-number">1</span>, <span class="hljs-number">8</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>            nn.ReLU(),<br>            nn.MaxPool2d(<span class="hljs-number">2</span>),<br>            nn.Conv2d(<span class="hljs-number">8</span>, <span class="hljs-number">16</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>),<br>            nn.ReLU(),<br>            nn.MaxPool2d(<span class="hljs-number">2</span>),<br>            nn.Flatten(),<br>            nn.Linear(<span class="hljs-number">16</span> * <span class="hljs-number">7</span> * <span class="hljs-number">7</span>, <span class="hljs-number">10</span>),<br>            nn.Softmax(dim=<span class="hljs-number">1</span>),<br>        )<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        <span class="hljs-keyword">return</span> self.net(x)<br><br>Net = Model().to(device)<br>optimizer = torch.optim.Adam(Net.parameters(), lr=<span class="hljs-number">0.001</span>)<br>critirion = nn.CrossEntropyLoss()<br><br><span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>    train_loss = <span class="hljs-number">0</span><br>    progress_bar = qqdm(train_loader)<br>    <span class="hljs-keyword">for</span> (x, y) <span class="hljs-keyword">in</span> progress_bar:<br>        x = x.to(device)<br>        y = y.to(device)<br>        y_pred = Net(x)<br>        loss = critirion(y_pred, y)<br>        <br>        optimizer.zero_grad()<br>        loss.backward()<br>        optimizer.step()<br>        <br>        progress_bar.set_infos(&#123;<br>            <span class="hljs-string">&#x27;epoch&#x27;</span>: epoch,<br>            <span class="hljs-string">&#x27;loss&#x27;</span>: <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;loss:<span class="hljs-number">.4</span>f&#125;</span>&#x27;</span>,<br>        &#125;)<br>        <br>n_correct = <span class="hljs-number">0</span><br>n_sample = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> i, (x, y) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(train_loader):<br>    x = x.to(device)<br>    y = y.to(device)<br>    out = Net(x)<br>    _, pred = torch.<span class="hljs-built_in">max</span>(out, <span class="hljs-number">1</span>)<br>    n_correct += (pred == y).<span class="hljs-built_in">sum</span>().item()<br>    n_sample += y.shape[<span class="hljs-number">0</span>]<br>acc = n_correct / n_sample<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;\nAccuracy: <span class="hljs-subst">&#123;acc:<span class="hljs-number">.4</span>f&#125;</span>&#x27;</span>, <span class="hljs-string">f&#x27;total time when using <span class="hljs-subst">&#123;device&#125;</span>: <span class="hljs-subst">&#123;time.time() - start_time:<span class="hljs-number">.4</span>f&#125;</span> seconds&#x27;</span>)<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="結果"><a href="#結果" class="headerlink" title="結果"></a>結果</h2><ul>
+<li>CPU: Accuracy: 0.9886 total time when using cpu: 131.9462 seconds</li>
+<li>GPU: Accuracy: 0.9889 total time when using mps: 100.2587 seconds</li>
+</ul>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
+<li>我們可以看到，對於準確率來說，兩者相異不大，會有差別的原因可能是因為CPU與GPU對於浮點運算上可能有些誤差導致而成</li>
+<li>就時間上來說，GPU比CPU所花的時間少了31.7秒左右，也就是是說使用GPU快了約31.6%左右，看起來並非特別明顯，可能要等之後正式版釋出後再來看pytorch有沒有再將其優化了</li>
+<li>另外，我也做了純Linear的版本，當batch size不夠大的時候(我自己是測到大小為1024)，我發現使用CPU所花的時間會比GPU的少了許多，也就是說除非能夠將batch size設得足夠大，否則在只使用Linear時使用GPU反而拖慢了訓練時間</li>
+</ul>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>將Apple Silicon拿來做深度學習終於不是件遙不可及的事了，且得益於Apple的GPU與CPU的RAM是共用的，因此或許可以減少在訓練時Out Of Memory發生的情況。雖然說目前我認為要調整內容應該還很多，但能夠有所進步已經是一件令人非常開心的事了。</p>
+<div class="note note-warning">
+            <p>最近pytorch也宣佈將整個框架交給由AMD， AWS， Google， Meta， Microsoft，Nvidia所組成的獨立基金會來管理，或許使用AMD顯卡來跑深度學習的日子也近了～</p>
+          </div>
+
 <hr>
 
                 
@@ -319,7 +356,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E9%80%B1%E8%A8%98/" class="category-chain-item">週記</a>
+  <a href="/categories/%E6%B8%AC%E8%A9%A6/" class="category-chain-item">測試</a>
   
   
 
@@ -334,11 +371,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%BB%A2%E8%A9%B1/">#廢話</a>
+        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92/">#深度學習</a>
       
-        <a href="/tags/%E5%BF%83%E6%83%85/">#心情</a>
-      
-        <a href="/tags/CPC/">#CPC</a>
+        <a href="/tags/pytorch/">#pytorch</a>
       
     </div>
   
@@ -350,8 +385,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>新生訓練</div>
-      <div>http://example.com/2022/09/02/20220902/</div>
+      <div>Apple Silicon在pytorch的GPU測試</div>
+      <div>http://example.com/2022/09/16/20220916/</div>
     </div>
     <div class="license-meta">
       
@@ -363,7 +398,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>September 2, 2022</div>
+          <div>September 16, 2022</div>
         </div>
       
       
@@ -393,18 +428,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/04/20220904/" title="測試模型中...">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">測試模型中...</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/30/20220830/" title="UVa10931 Parity">
-                        <span class="hidden-mobile">UVa10931 Parity</span>
+                      <a href="/2022/09/12/20220912/" title="CPC第一次社課">
+                        <span class="hidden-mobile">CPC第一次社課</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -422,8 +451,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2022/09/02/20220902/';
-          this.page.identifier = '/2022/09/02/20220902/';
+          this.page.url = 'http://example.com/2022/09/16/20220916/';
+          this.page.identifier = '/2022/09/16/20220916/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
