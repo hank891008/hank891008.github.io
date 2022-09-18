@@ -17,26 +17,25 @@
   <meta name="author" content="Hank Hsu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="這禮拜算是遇到了一些低潮，由於資源實在不太夠了，目前我一個人所使用GPU的ram至少需要36G左右，又加上我是一次跑很多個小模型(不同風格需要分開train)，目前的GPU是兩張3090，仍然不夠我們用，只能Deep Learning真的都是用錢燒出來的哈哈哈哈。而另一點是我找到了一個5000張content與5000張style的dataset，我的模型對於還原content與style雖然有">
+    <meta name="description" content="這週六我與未來的實習單位進行面試，他問了我畢業專題做了哪些部分，並用了什麼做法。老實講我當下的回答其實有一些部分講得非常卡，最後我是直接開meeting用的投影片來講，而他問的很多問題也都沒有回答到點上，我自己認為講得非常糟糕。之後就聊到我有在比程式競賽，他問我最近打過最有趣的是哪一題，當下其實我的腦袋是一片空，我幾乎整個暑假都與畢業專題相處，整個暑假打的題目相較而言就少之又少，我就突然想到我的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模型train不起來">
-<meta property="og:url" content="http://example.com/2022/08/25/20220825/index.html">
+<meta property="og:title" content="實習面試">
+<meta property="og:url" content="http://example.com/2022/09/18/20220918/index.html">
 <meta property="og:site_name" content="Hank&#39;s Blog">
-<meta property="og:description" content="這禮拜算是遇到了一些低潮，由於資源實在不太夠了，目前我一個人所使用GPU的ram至少需要36G左右，又加上我是一次跑很多個小模型(不同風格需要分開train)，目前的GPU是兩張3090，仍然不夠我們用，只能Deep Learning真的都是用錢燒出來的哈哈哈哈。而另一點是我找到了一個5000張content與5000張style的dataset，我的模型對於還原content與style雖然有">
+<meta property="og:description" content="這週六我與未來的實習單位進行面試，他問了我畢業專題做了哪些部分，並用了什麼做法。老實講我當下的回答其實有一些部分講得非常卡，最後我是直接開meeting用的投影片來講，而他問的很多問題也都沒有回答到點上，我自己認為講得非常糟糕。之後就聊到我有在比程式競賽，他問我最近打過最有趣的是哪一題，當下其實我的腦袋是一片空，我幾乎整個暑假都與畢業專題相處，整個暑假打的題目相較而言就少之又少，我就突然想到我的">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-25T10:07:00.000Z">
-<meta property="article:modified_time" content="2022-09-04T03:07:43.243Z">
+<meta property="article:published_time" content="2022-09-18T11:51:06.000Z">
+<meta property="article:modified_time" content="2022-09-18T14:59:02.931Z">
 <meta property="article:author" content="Hank Hsu">
-<meta property="article:tag" content="廢話">
-<meta property="article:tag" content="深度學習">
-<meta property="article:tag" content="畢業專題">
+<meta property="article:tag" content="心情">
+<meta property="article:tag" content="面試">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>模型train不起來 - Hank&#39;s Blog</title>
+  <title>實習面試 - Hank&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="模型train不起來"></span>
+            <span id="subtitle" data-typed-text="實習面試"></span>
           
         </div>
 
@@ -216,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-25 18:07" pubdate>
-          August 25, 2022 pm
+        <time datetime="2022-09-18 19:51" pubdate>
+          September 18, 2022 pm
         </time>
       </span>
     
@@ -228,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          374 words
+          581 words
         
       </span>
     
@@ -239,7 +238,7 @@
         
         
         
-          4 mins
+          5 mins
         
       </span>
     
@@ -285,12 +284,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">模型train不起來</h1>
+            <h1 style="display: none">實習面試</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on 14 days ago
+                    Last updated on a few seconds ago
                   
                 
               </p>
@@ -299,7 +298,7 @@
               <div class="markdown-body">
                 
                 <hr>
-<p>這禮拜算是遇到了一些低潮，由於資源實在不太夠了，目前我一個人所使用GPU的ram至少需要36G左右，又加上我是一次跑很多個小模型(不同風格需要分開train)，目前的GPU是兩張3090，仍然不夠我們用，只能Deep Learning真的都是用錢燒出來的哈哈哈哈。<br>而另一點是我找到了一個5000張content與5000張style的dataset，我的模型對於還原content與style雖然有些模糊，但還算可以接受，至於他們所組合出來的合成照就是灰灰的一片，目前我認為可能有兩種原因，第一種純粹是還沒train完(大約只跑了2%左右)，再來就是我的模型餐數量太少了，沒有辦法完全學習好。我自己還不知道要怎麼解決。我個人是傾向第二種，因此只好先想辦法再拿更小的資料集來印證我的想法。最近也會盡量多找一些paper來看，希望能找到一些修改上的靈感。</p>
+<p>這週六我與未來的實習單位進行面試，他問了我畢業專題做了哪些部分，並用了什麼做法。老實講我當下的回答其實有一些部分講得非常卡，最後我是直接開meeting用的投影片來講，而他問的很多問題也都沒有回答到點上，我自己認為講得非常糟糕。<br>之後就聊到我有在比程式競賽，他問我最近打過最有趣的是哪一題，當下其實我的腦袋是一片空，我幾乎整個暑假都與畢業專題相處，整個暑假打的題目相較而言就少之又少，我就突然想到我的Blog好像有寫一些題目的題解，我是用Bar Codes那題，好險暑假剛好有回去重新寫一次這題，不然我就真的是完蛋了哈哈哈。<br>最後，他問我有沒有什麼問題，我問了有關於工作時間與內容、是否有需要實體meeting。對了，我問了一個很不應該的問題，現在想到還是非常慚愧，我問他你們上一個案子是在做什麼東西，問出來的當下我就後悔了，這畢竟是與他們內部有關的問題，我這樣問好像有點不太禮貌，當下我就趕緊道歉，並與面試的人員說如果有不方便不用回答沒關係，好險面試人員真的非常nice，他還是跟我說了他們上一個專案的內容。<br>這是我第一次真正面試的經驗，我真的認爲自己是不及格的。在過程中過於緊張導致回答的很卡就算了，連自己熟悉的領域都回答的非常糟糕，甚至忘了自己模型設計的某些細節，真的要哭出來了。只能說這真的是一次非常特別的經驗，至於之後是否進入這的實習單位，就只能之後再分享囉～</p>
 <hr>
 
                 
@@ -319,7 +318,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%AD%B8%E7%BF%92%E7%B4%80%E9%8C%84/" class="category-chain-item">學習紀錄</a>
+  <a href="/categories/%E9%80%B1%E8%A8%98/" class="category-chain-item">週記</a>
   
   
 
@@ -334,11 +333,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%BB%A2%E8%A9%B1/">#廢話</a>
+        <a href="/tags/%E5%BF%83%E6%83%85/">#心情</a>
       
-        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92/">#深度學習</a>
-      
-        <a href="/tags/%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/">#畢業專題</a>
+        <a href="/tags/%E9%9D%A2%E8%A9%A6/">#面試</a>
       
     </div>
   
@@ -350,8 +347,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>模型train不起來</div>
-      <div>http://example.com/2022/08/25/20220825/</div>
+      <div>實習面試</div>
+      <div>http://example.com/2022/09/18/20220918/</div>
     </div>
     <div class="license-meta">
       
@@ -363,7 +360,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>August 25, 2022</div>
+          <div>September 18, 2022</div>
         </div>
       
       
@@ -393,18 +390,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/28/20220828/" title="UVa10721 Bar Codes">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">UVa10721 Bar Codes</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/23/20220823/" title="CycleGAN">
-                        <span class="hidden-mobile">CycleGAN</span>
+                      <a href="/2022/09/16/20220916/" title="Apple Silicon在pytorch的GPU測試">
+                        <span class="hidden-mobile">Apple Silicon在pytorch的GPU測試</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -422,8 +413,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2022/08/25/20220825/';
-          this.page.identifier = '/2022/08/25/20220825/';
+          this.page.url = 'http://example.com/2022/09/18/20220918/';
+          this.page.identifier = '/2022/09/18/20220918/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
