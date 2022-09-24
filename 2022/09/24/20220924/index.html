@@ -17,27 +17,25 @@
   <meta name="author" content="Hank Hsu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="這個星期我稍微修改了模型的架構，聽從了學長的建議，只轉單一風格或許會讓NN學不到「風格」的特徵，因此我應該更注重的是在多種風格的轉換而非單純的多張照片對一種風格的轉換。另外，我也稍微看了一下adain的論文，既然風格轉換可以說是從一個domain映射到另一個domain，那對於最後要生成圖像的decoder(Generator)，就不應該對它做IN(instance normalization)">
+    <meta name="description" content="最近的我真的超級無敵忙，要處理推甄的事，又有助教的工作需要處理，畢業專題也在進行中，甚至還要與實習單位面試。這週的我真的有點渾身乏術的感覺，好想把一切拋得遠遠的，不想面對任何事，但這就是成長吧。現在的我只能夠壓榨自己來換取更多的時間，想辦法在同時間內完成更多事，可能未來就習慣了，只是現在的我仍在適應不良的狀態，只希望未來的自己，不要辜負了現在的努力。小時候的我已經逃避夠多次了，現在的我，不想也不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模型修改">
-<meta property="og:url" content="http://example.com/2022/08/10/20220810/index.html">
+<meta property="og:title" content="好多事QQ">
+<meta property="og:url" content="http://example.com/2022/09/24/20220924/index.html">
 <meta property="og:site_name" content="Hank&#39;s Blog">
-<meta property="og:description" content="這個星期我稍微修改了模型的架構，聽從了學長的建議，只轉單一風格或許會讓NN學不到「風格」的特徵，因此我應該更注重的是在多種風格的轉換而非單純的多張照片對一種風格的轉換。另外，我也稍微看了一下adain的論文，既然風格轉換可以說是從一個domain映射到另一個domain，那對於最後要生成圖像的decoder(Generator)，就不應該對它做IN(instance normalization)">
+<meta property="og:description" content="最近的我真的超級無敵忙，要處理推甄的事，又有助教的工作需要處理，畢業專題也在進行中，甚至還要與實習單位面試。這週的我真的有點渾身乏術的感覺，好想把一切拋得遠遠的，不想面對任何事，但這就是成長吧。現在的我只能夠壓榨自己來換取更多的時間，想辦法在同時間內完成更多事，可能未來就習慣了，只是現在的我仍在適應不良的狀態，只希望未來的自己，不要辜負了現在的努力。小時候的我已經逃避夠多次了，現在的我，不想也不">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-10T05:30:05.000Z">
-<meta property="article:modified_time" content="2022-09-04T03:06:42.073Z">
+<meta property="article:published_time" content="2022-09-24T15:10:45.000Z">
+<meta property="article:modified_time" content="2022-09-24T15:22:31.632Z">
 <meta property="article:author" content="Hank Hsu">
-<meta property="article:tag" content="深度學習">
-<meta property="article:tag" content="畢業專題">
-<meta property="article:tag" content="Autoencoder">
-<meta property="article:tag" content="Style Transfer">
+<meta property="article:tag" content="廢話">
+<meta property="article:tag" content="心情">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>模型修改 - Hank&#39;s Blog</title>
+  <title>好多事QQ - Hank&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="模型修改"></span>
+            <span id="subtitle" data-typed-text="好多事QQ"></span>
           
         </div>
 
@@ -217,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-10 13:30" pubdate>
-          August 10, 2022 pm
+        <time datetime="2022-09-24 23:10" pubdate>
+          September 24, 2022 pm
         </time>
       </span>
     
@@ -229,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          565 words
+          210 words
         
       </span>
     
@@ -240,7 +238,7 @@
         
         
         
-          5 mins
+          2 mins
         
       </span>
     
@@ -286,12 +284,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">模型修改</h1>
+            <h1 style="display: none">好多事QQ</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on 21 days ago
+                    Last updated on a few seconds ago
                   
                 
               </p>
@@ -300,11 +298,7 @@
               <div class="markdown-body">
                 
                 <hr>
-<p>這個星期我稍微修改了模型的架構，聽從了學長的建議，只轉單一風格或許會讓NN學不到「風格」的特徵，因此我應該更注重的是在多種風格的轉換而非單純的多張照片對一種風格的轉換。另外，我也稍微看了一下adain的論文，既然風格轉換可以說是從一個domain映射到另一個domain，那對於最後要生成圖像的decoder(Generator)，就不應該對它做IN(instance normalization)，有關於adain我想我未來可以再發一篇文來解釋。而都是基於理論上的想法，而我在實作時明顯發現，刪掉了IN會讓我的loss能夠將的更低，但由於訓練時間因為要做多風格轉換就從原本的幾個小時變成了需要訓練一天半左右。</p>
-<p>目前訓練上最麻煩的就是時間了，因為每個禮拜都要meeting，但礙於訓練時間拉長的緣故，其實我進度可能會稍微緩慢一些，更何況這還只是對於小資料集(10張照片轉換成8種風格)，未來若要做到更大的資料集，我想那個訓練時間應該會非常可觀QQ，目前也只能這樣了。</p>
-<blockquote>
-<p>未來我在想，應該要增加我的發文頻率，由於我原本預期是週記，但我發現一週能講的事情實在是太多了，而且我是個非常健忘的人，常常一週過了我就忘記我這週到底都在幹嘛了哈哈哈哈，未來我希望能夠一週發個4~5篇文，最好是能每天都更新，不然到最後我怕因為懶惰而放棄我的週記計畫QQ。</p>
-</blockquote>
+<p>最近的我真的超級無敵忙，要處理推甄的事，又有助教的工作需要處理，畢業專題也在進行中，甚至還要與實習單位面試。這週的我真的有點渾身乏術的感覺，好想把一切拋得遠遠的，不想面對任何事，但這就是成長吧。<br>現在的我只能夠壓榨自己來換取更多的時間，想辦法在同時間內完成更多事，可能未來就習慣了，只是現在的我仍在適應不良的狀態，只希望未來的自己，不要辜負了現在的努力。<br>小時候的我已經逃避夠多次了，現在的我，不想也不會再逃避了，希望啦XD</p>
 <hr>
 
                 
@@ -324,7 +318,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%AD%B8%E7%BF%92%E7%B4%80%E9%8C%84/" class="category-chain-item">學習紀錄</a>
+  <a href="/categories/%E9%80%B1%E8%A8%98/" class="category-chain-item">週記</a>
   
   
 
@@ -339,13 +333,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92/">#深度學習</a>
+        <a href="/tags/%E5%BB%A2%E8%A9%B1/">#廢話</a>
       
-        <a href="/tags/%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/">#畢業專題</a>
-      
-        <a href="/tags/Autoencoder/">#Autoencoder</a>
-      
-        <a href="/tags/Style-Transfer/">#Style Transfer</a>
+        <a href="/tags/%E5%BF%83%E6%83%85/">#心情</a>
       
     </div>
   
@@ -357,8 +347,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>模型修改</div>
-      <div>http://example.com/2022/08/10/20220810/</div>
+      <div>好多事QQ</div>
+      <div>http://example.com/2022/09/24/20220924/</div>
     </div>
     <div class="license-meta">
       
@@ -370,7 +360,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>August 10, 2022</div>
+          <div>September 24, 2022</div>
         </div>
       
       
@@ -400,18 +390,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/11/20220811/" title="忘記要報告了QQ">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">忘記要報告了QQ</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/08/20220808/" title="七夕情人節快樂">
-                        <span class="hidden-mobile">七夕情人節快樂</span>
+                      <a href="/2022/09/18/20220918/" title="實習面試">
+                        <span class="hidden-mobile">實習面試</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -429,8 +413,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2022/08/10/20220810/';
-          this.page.identifier = '/2022/08/10/20220810/';
+          this.page.url = 'http://example.com/2022/09/24/20220924/';
+          this.page.identifier = '/2022/09/24/20220924/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
