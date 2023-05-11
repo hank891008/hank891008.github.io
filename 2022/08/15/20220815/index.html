@@ -244,7 +244,7 @@
         
         
         
-          16 mins
+          17 mins
         
       </span>
     
@@ -295,7 +295,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on 6 months ago
+                    Last updated on 9 months ago
                   
                 
               </p>
@@ -311,25 +311,10 @@
 </ul>
 <hr>
 <ul>
-<li>✔️ 題解<br>將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd Warshall就可找出起點到終點的最短路徑(時間)。<br>假設有點A與點B，A(x)代表A的座標在x，r則是其半徑，我們可以分成以下三個case來討論：<table>
-<thead>
-<tr>
-<th align="center">Case1:兩圓外離</th>
-<th align="center">Case2:兩圓外切</th>
-<th align="center">Case3:兩圓相交</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><img src="/./img/20220815/case1.png" srcset="/img/loading.gif" lazyload></td>
-<td align="center"><img src="/./img/20220815/case2.png" srcset="/img/loading.gif" lazyload></td>
-<td align="center"><img src="/./img/20220815/case3.png" srcset="/img/loading.gif" lazyload></td>
-</tr>
-</tbody></table>
-</li>
+<li>✔️ 題解<br>將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd Warshall就可找出起點到終點的最短路徑(時間)。<br>假設有點A與點B，A(x)代表A的座標在x，r則是其半徑，我們可以分成以下三個case來討論：<br>|            Case1:兩圓外離         |           Case2:兩圓外切          |           Case3:兩圓相交          |</li>
 </ul>
-<p>因此，我們可以導出以下式子<br>$$<br>distance(a, b) &#x3D;<br>\begin{cases}<br>\overline{AB} - r_{a} - r_{b}, &amp; \text{if $\overline{AB}$ &gt; $r_{a}$ + $r_{b}$} \\<br>0, &amp; \text{if $\overline{AB}$ $\le$  $r_{a}$ + $r_{b}$}<br>\end{cases}<br>$$<br>建完圖後這題就變成單純的最短路啦，我們只要利用floyd warshall或任何求最短路的演算法，找出起點與終點的距離再乘以10就是答案了。</p>
-<hr>
-<ul>
+<p>:————————-:|:————————-:|:————————-:<br><img src="/./img/20220815/case1.png" srcset="/img/loading.gif" lazyload>  |  <img src="/./img/20220815/case2.png" srcset="/img/loading.gif" lazyload>  |  <img src="/./img/20220815/case3.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="因此，我們可以導出以下式子-distance-a-b-x3D-begin-cases-overline-AB-r-a-r-b-amp-text-if-overline-AB-gt-r-a-r-b-0-amp-text-if-overline-AB-le-r-a-r-b-end-cases-建完圖後這題就變成單純的最短路啦，我們只要利用floyd-warshall或任何求最短路的演算法，找出起點與終點的距離再乘以10就是答案了。"><a href="#因此，我們可以導出以下式子-distance-a-b-x3D-begin-cases-overline-AB-r-a-r-b-amp-text-if-overline-AB-gt-r-a-r-b-0-amp-text-if-overline-AB-le-r-a-r-b-end-cases-建完圖後這題就變成單純的最短路啦，我們只要利用floyd-warshall或任何求最短路的演算法，找出起點與終點的距離再乘以10就是答案了。" class="headerlink" title="因此，我們可以導出以下式子$$distance(a, b) &#x3D;\begin{cases}\overline{AB} - r_{a} - r_{b}, &amp; \text{if $\overline{AB}$ &gt; $r_{a}$ + $r_{b}$} \\0, &amp; \text{if $\overline{AB}$ $\le$  $r_{a}$ + $r_{b}$}\end{cases}$$建完圖後這題就變成單純的最短路啦，我們只要利用floyd warshall或任何求最短路的演算法，找出起點與終點的距離再乘以10就是答案了。"></a>因此，我們可以導出以下式子<br>$$<br>distance(a, b) &#x3D;<br>\begin{cases}<br>\overline{AB} - r_{a} - r_{b}, &amp; \text{if $\overline{AB}$ &gt; $r_{a}$ + $r_{b}$} \\<br>0, &amp; \text{if $\overline{AB}$ $\le$  $r_{a}$ + $r_{b}$}<br>\end{cases}<br>$$<br>建完圖後這題就變成單純的最短路啦，我們只要利用floyd warshall或任何求最短路的演算法，找出起點與終點的距離再乘以10就是答案了。</h2><ul>
 <li>💻 程式碼<blockquote>
 <p>10ms</p>
 </blockquote>
