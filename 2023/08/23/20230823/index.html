@@ -17,25 +17,26 @@
   <meta name="author" content="Hank Hsu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="這週是開學第一週，雖說我這學期的學分比過去少了很多，但我認為反而工作量並沒有減少太多。最近又剛好遇到有學長問我是否有想要實習，是做電腦視覺那方面的，我個人其實還蠻感興趣的，但我非常擔心會因此而拖累到專題的進度，也十分害怕自己會忙不過來而導致其他事情被delay。因此我目前還在觀望，先試試看這陣子是否太忙，之後再來決定。這幾週陸續有推甄的消息出來了，而我的進度仍然還是只完成了個人簡歷，真的不知道自">
+    <meta name="description" content="題目連結 ❗️ 題意給定一個 Non-decreasing的陣列 $nums$, 請輸出一個與原本的 nums大小相同的陣列 $results$，而對於全部、$results[i]$而言，其值為$nums[i]$與其他所有元素$nums[j]$的絕對值總和。 Input: $[2,3,5]$ Output: $[4,3,5]$ $4 &#x3D; |2 - 3| + |2 - 5|$ $3 &amp;#x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="開學第一週">
-<meta property="og:url" content="http://example.com/2022/09/08/20220908/index.html">
+<meta property="og:title" content="LeetCode 1685 Sum of Absolute Differences in a Sorted Array">
+<meta property="og:url" content="http://example.com/2023/08/23/20230823/index.html">
 <meta property="og:site_name" content="Hank&#39;s Blog">
-<meta property="og:description" content="這週是開學第一週，雖說我這學期的學分比過去少了很多，但我認為反而工作量並沒有減少太多。最近又剛好遇到有學長問我是否有想要實習，是做電腦視覺那方面的，我個人其實還蠻感興趣的，但我非常擔心會因此而拖累到專題的進度，也十分害怕自己會忙不過來而導致其他事情被delay。因此我目前還在觀望，先試試看這陣子是否太忙，之後再來決定。這幾週陸續有推甄的消息出來了，而我的進度仍然還是只完成了個人簡歷，真的不知道自">
+<meta property="og:description" content="題目連結 ❗️ 題意給定一個 Non-decreasing的陣列 $nums$, 請輸出一個與原本的 nums大小相同的陣列 $results$，而對於全部、$results[i]$而言，其值為$nums[i]$與其他所有元素$nums[j]$的絕對值總和。 Input: $[2,3,5]$ Output: $[4,3,5]$ $4 &#x3D; |2 - 3| + |2 - 5|$ $3 &amp;#x">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-09-08T11:55:51.000Z">
-<meta property="article:modified_time" content="2022-09-08T12:01:41.630Z">
+<meta property="article:published_time" content="2023-08-22T16:22:16.000Z">
+<meta property="article:modified_time" content="2023-08-22T17:51:06.508Z">
 <meta property="article:author" content="Hank Hsu">
-<meta property="article:tag" content="廢話">
-<meta property="article:tag" content="心情">
+<meta property="article:tag" content="cpp">
+<meta property="article:tag" content="prefix sum">
+<meta property="article:tag" content="Medium">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>開學第一週 - Hank&#39;s Blog</title>
+  <title>LeetCode 1685 Sum of Absolute Differences in a Sorted Array - Hank&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="開學第一週"></span>
+            <span id="subtitle" data-typed-text="LeetCode 1685 Sum of Absolute Differences in a Sorted Array"></span>
           
         </div>
 
@@ -215,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-08 19:55" pubdate>
-          September 8, 2022 pm
+        <time datetime="2023-08-23 00:22" pubdate>
+          August 23, 2023 am
         </time>
       </span>
     
@@ -227,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          212 words
+          1.7k words
         
       </span>
     
@@ -238,7 +239,7 @@
         
         
         
-          2 mins
+          15 mins
         
       </span>
     
@@ -284,12 +285,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">開學第一週</h1>
+            <h1 style="display: none">LeetCode 1685 Sum of Absolute Differences in a Sorted Array</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on a year ago
+                    Last updated on 5 minutes ago
                   
                 
               </p>
@@ -297,8 +298,43 @@
             
               <div class="markdown-body">
                 
-                <hr>
-<p>這週是開學第一週，雖說我這學期的學分比過去少了很多，但我認為反而工作量並沒有減少太多。最近又剛好遇到有學長問我是否有想要實習，是做電腦視覺那方面的，我個人其實還蠻感興趣的，但我非常擔心會因此而拖累到專題的進度，也十分害怕自己會忙不過來而導致其他事情被delay。因此我目前還在觀望，先試試看這陣子是否太忙，之後再來決定。這幾週陸續有推甄的消息出來了，而我的進度仍然還是只完成了個人簡歷，真的不知道自傳到底要寫什麼，好擔心啊。</p>
+                <h2 id="題目連結"><a href="#題目連結" class="headerlink" title="題目連結"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/sum-of-absolute-differences-in-a-sorted-array/">題目連結</a></h2><ul>
+<li>❗️ 題意<br>給定一個 Non-decreasing的陣列 $nums$, 請輸出一個與原本的 nums大小相同的陣列 $results$，而對於全部、$results[i]$而言，其值為$nums[i]$與其他所有元素$nums[j]$的絕對值總和。<ul>
+<li>Input: $[2,3,5]$</li>
+<li>Output: $[4,3,5]$<ul>
+<li>$4 &#x3D; |2 - 3| + |2 - 5|$</li>
+<li>$3 &#x3D; |3 - 2| + |3 - 5|$</li>
+<li>$5 &#x3D; |5 - 2| + |5 - 3|$</li>
+</ul>
+</li>
+<li>Constraints:<ul>
+<li>$2 \leq nums.length \leq 10^5$</li>
+<li>$1 \leq nums[i] \leq nums[i + 1] \leq 10^4$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>✔️ 題解<br>首先，這題我們可以先想到暴力解的方式，利用兩個迴圈窮舉任兩個元素之間的絕對值再累加出答案，此種方式的時間複雜度為$O(n^2)$，對於nums的長度為$10^5$而言顯然一定會TLE。<br>因此，我們就需要利用到nums這個陣列是「已排序」的條件來解決此題目，首先我們可以觀察到一個情況，對於某個$nums[i]$來說，$num[0] \sim nums[i - 1]$都會比$nums[i]$小，相反地，對於$nums[i + 1] \sim nums[nums.length - 1]$一定都比$nums[i]$來得大，透過利用此特性，我們就可以先將$num[0] \sim nums[i - 1]$與$nums[i + 1] \sim nums[nums.length - 1]$的部分先計算出來，而答案就是比$nums[i]$還小的數值的總和減掉與其相同數量($i - 1$個)的$nums[i]$，再去加上比$nums[i]$還大的數值總和掉相同數量($nums.length - 1 - i$個)的$nums[i]$。<br>而如何快速的計算區間的總和也是一個問題，在這部分，我們可以透過前綴和(Prefix Sum)的方式，宣告一個新的陣列$prefix$，其中$prefix[i]$內存的就是$nums[0] \sim nums[i]$的總和，以此我們就能夠快速的知道比某個$nums[i]$還小的總和與比$nums[i]$還大的總和，分別為$prefix[i - 1]$與$prefix[nums.length - 1] - prefix[i]$，而對於最後的答案，我們可以分別計算兩者結果，再將其總和，以下面表示：<ul>
+<li>$lesser &#x3D; nums[i] * i - prefix[i - 1]$</li>
+<li>$greater &#x3D; (prefix[n - 1] - prefix[i]) - (n - 1 - i) * nums[i]$</li>
+<li>$ans &#x3D; lesser + greater$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>💻 程式碼<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">getSumAbsoluteDifferences</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> prefix[n];<br>        <span class="hljs-built_in">memset</span>(prefix, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(prefix));<br>        prefix[<span class="hljs-number">0</span>] = nums[<span class="hljs-number">0</span>];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++)&#123;<br>            prefix[i] = prefix[i - <span class="hljs-number">1</span>] + nums[i];<br>        &#125;<br>        vector&lt;<span class="hljs-type">int</span>&gt;result;<br>        result.<span class="hljs-built_in">emplace_back</span>(prefix[n - <span class="hljs-number">1</span>] - prefix[<span class="hljs-number">0</span>] - (n - <span class="hljs-number">1</span>) * prefix[<span class="hljs-number">0</span>]);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++)&#123;<br>            <span class="hljs-type">int</span> lesser = nums[i] * i - prefix[i - <span class="hljs-number">1</span>];<br>            <span class="hljs-type">int</span> greater = (prefix[n - <span class="hljs-number">1</span>] - prefix[i]) - (n - <span class="hljs-number">1</span> - i) * nums[i];<br>            result.<span class="hljs-built_in">emplace_back</span>(lesser + greater);<br>        &#125;<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+<div class="note note-warning">
+            <p>Runtime: 70 ms, faster than 99.11% of C++ online submissions</p>
+          </div></li>
+</ul>
+<hr>
+<ul>
+<li>🧠 心得<br>最近開始佛系刷LeetCode，一天大概寫3~5題左右，以後遇到有趣的題目再放上來與大家分享我的解題方法與心得啦～</li>
+</ul>
 <hr>
 
                 
@@ -318,7 +354,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E9%80%B1%E8%A8%98/" class="category-chain-item">週記</a>
+  <a href="/categories/LeetCode/" class="category-chain-item">LeetCode</a>
   
   
 
@@ -333,9 +369,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%BB%A2%E8%A9%B1/">#廢話</a>
+        <a href="/tags/cpp/">#cpp</a>
       
-        <a href="/tags/%E5%BF%83%E6%83%85/">#心情</a>
+        <a href="/tags/prefix-sum/">#prefix sum</a>
+      
+        <a href="/tags/Medium/">#Medium</a>
       
     </div>
   
@@ -347,8 +385,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>開學第一週</div>
-      <div>http://example.com/2022/09/08/20220908/</div>
+      <div>LeetCode 1685 Sum of Absolute Differences in a Sorted Array</div>
+      <div>http://example.com/2023/08/23/20230823/</div>
     </div>
     <div class="license-meta">
       
@@ -360,7 +398,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>September 8, 2022</div>
+          <div>August 23, 2023</div>
         </div>
       
       
@@ -390,18 +428,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/12/20220912/" title="CPC第一次社課">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CPC第一次社課</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/04/20220904/" title="測試模型中...">
-                        <span class="hidden-mobile">測試模型中...</span>
+                      <a href="/2023/05/11/20230511/" title="112 四大電資推甄心得分享">
+                        <span class="hidden-mobile">112 四大電資推甄心得分享</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -419,8 +451,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2022/09/08/20220908/';
-          this.page.identifier = '/2022/09/08/20220908/';
+          this.page.url = 'http://example.com/2023/08/23/20230823/';
+          this.page.identifier = '/2023/08/23/20230823/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
@@ -480,6 +512,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -670,6 +708,40 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
