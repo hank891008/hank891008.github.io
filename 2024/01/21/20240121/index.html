@@ -17,31 +17,26 @@
   <meta name="author" content="Hank Hsu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="題目連結   ❗️ 題意在一塊起司中，給有n個球形的洞，在洞裡的移動不耗時間，再給定出發點與終點，問你從出發點到終點，的最短路徑(距離：時間 &#x3D; 1:10)是多少?    ✔️ 題解將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd Warshall就可找出起點到終點的最短路徑(時間)。假設有點A與點B，A(x)代表A的座標在x，r則是其">
+    <meta name="description" content="題目連結  ❗️ 題意給定一個陣列 $nums$，請你從裡面竟可能的選擇總和最大的數值，並且不能夠選擇相連的數字，最後請輸出能夠從此陣列中拿到的最大值為何。  Input: $[1,2,3,1]$  Output: $4$  $nums[0] + nums[2] &#x3D; 4$   Input: $[2,7,9,3,1]$  Output: $12$  $nums[0] + nums[2] +">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UVa01001 Say Cheese">
-<meta property="og:url" content="http://example.com/2022/08/15/20220815/index.html">
+<meta property="og:title" content="LeetCode 198 House Robber">
+<meta property="og:url" content="http://example.com/2024/01/21/20240121/index.html">
 <meta property="og:site_name" content="Hank&#39;s Blog">
-<meta property="og:description" content="題目連結   ❗️ 題意在一塊起司中，給有n個球形的洞，在洞裡的移動不耗時間，再給定出發點與終點，問你從出發點到終點，的最短路徑(距離：時間 &#x3D; 1:10)是多少?    ✔️ 題解將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd Warshall就可找出起點到終點的最短路徑(時間)。假設有點A與點B，A(x)代表A的座標在x，r則是其">
+<meta property="og:description" content="題目連結  ❗️ 題意給定一個陣列 $nums$，請你從裡面竟可能的選擇總和最大的數值，並且不能夠選擇相連的數字，最後請輸出能夠從此陣列中拿到的最大值為何。  Input: $[1,2,3,1]$  Output: $4$  $nums[0] + nums[2] &#x3D; 4$   Input: $[2,7,9,3,1]$  Output: $12$  $nums[0] + nums[2] +">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/20220815/case1.png">
-<meta property="og:image" content="http://example.com/img/20220815/case2.png">
-<meta property="og:image" content="http://example.com/img/20220815/case3.png">
-<meta property="article:published_time" content="2022-08-15T15:07:20.000Z">
-<meta property="article:modified_time" content="2022-08-20T12:18:11.918Z">
+<meta property="article:published_time" content="2024-01-21T08:57:29.000Z">
+<meta property="article:modified_time" content="2024-01-21T10:45:19.048Z">
 <meta property="article:author" content="Hank Hsu">
-<meta property="article:tag" content="Graph">
 <meta property="article:tag" content="cpp">
-<meta property="article:tag" content="Floyd Warshall">
-<meta property="article:tag" content="Shortest Path">
+<meta property="article:tag" content="Medium">
+<meta property="article:tag" content="Dynamic Programming">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/20220815/case1.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>UVa01001 Say Cheese - Hank&#39;s Blog</title>
+  <title>LeetCode 198 House Robber - Hank&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -205,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="UVa01001 Say Cheese"></span>
+            <span id="subtitle" data-typed-text="LeetCode 198 House Robber"></span>
           
         </div>
 
@@ -221,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-15 23:07" pubdate>
-          August 15, 2022 pm
+        <time datetime="2024-01-21 16:57" pubdate>
+          January 21, 2024 pm
         </time>
       </span>
     
@@ -233,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k words
+          2.4k words
         
       </span>
     
@@ -244,7 +239,7 @@
         
         
         
-          17 mins
+          20 mins
         
       </span>
     
@@ -290,12 +285,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">UVa01001 Say Cheese</h1>
+            <h1 style="display: none">LeetCode 198 House Robber</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on a year ago
+                    Last updated on a minute ago
                   
                 
               </p>
@@ -303,30 +298,61 @@
             
               <div class="markdown-body">
                 
-                <hr>
-<p><a target="_blank" rel="noopener" href="https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3442">題目連結</a></p>
+                <p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/house-robber/">題目連結</a></p>
 <hr>
+<h2 id="❗️-題意"><a href="#❗️-題意" class="headerlink" title="❗️ 題意"></a>❗️ 題意</h2><p>給定一個陣列 $nums$，請你從裡面竟可能的選擇總和最大的數值，並且不能夠選擇相連的數字，最後請輸出能夠從此陣列中拿到的最大值為何。</p>
 <ul>
-<li>❗️ 題意<br>在一塊起司中，給有n個球形的洞，在洞裡的移動不耗時間，再給定出發點與終點，問你從出發點到終點，的最短路徑(距離：時間 &#x3D; 1:10)是多少?</li>
+<li><p>Input: $[1,2,3,1]$</p>
+</li>
+<li><p>Output: $4$</p>
+<ul>
+<li>$nums[0] + nums[2] &#x3D; 4$</li>
+</ul>
+</li>
+<li><p>Input: $[2,7,9,3,1]$</p>
+</li>
+<li><p>Output: $12$</p>
+<ul>
+<li>$nums[0] + nums[2] + nums[4] &#x3D; 12$</li>
+</ul>
+</li>
+<li><p>Constraints:</p>
+<ul>
+<li>$1 \leq nums.length \leq 100$</li>
+<li>$0 \leq nums[i] \leq 400$</li>
+</ul>
+</li>
 </ul>
 <hr>
-<ul>
-<li>✔️ 題解<br>將起點與終點的半徑設為0(變成半徑為0的球)，再將所有球的考慮過半徑的距離算出來，做一次Floyd Warshall就可找出起點到終點的最短路徑(時間)。<br>假設有點A與點B，A(x)代表A的座標在x，r則是其半徑，我們可以分成以下三個case來討論：<br>|            Case1:兩圓外離         |           Case2:兩圓外切          |           Case3:兩圓相交          |</li>
-</ul>
-<p>:————————-:|:————————-:|:————————-:<br><img src="/./img/20220815/case1.png" srcset="/img/loading.gif" lazyload>  |  <img src="/./img/20220815/case2.png" srcset="/img/loading.gif" lazyload>  |  <img src="/./img/20220815/case3.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="因此，我們可以導出以下式子-distance-a-b-x3D-begin-cases-overline-AB-r-a-r-b-amp-text-if-overline-AB-gt-r-a-r-b-0-amp-text-if-overline-AB-le-r-a-r-b-end-cases-建完圖後這題就變成單純的最短路啦，我們只要利用floyd-warshall或任何求最短路的演算法，找出起點與終點的距離再乘以10就是答案了。"><a href="#因此，我們可以導出以下式子-distance-a-b-x3D-begin-cases-overline-AB-r-a-r-b-amp-text-if-overline-AB-gt-r-a-r-b-0-amp-text-if-overline-AB-le-r-a-r-b-end-cases-建完圖後這題就變成單純的最短路啦，我們只要利用floyd-warshall或任何求最短路的演算法，找出起點與終點的距離再乘以10就是答案了。" class="headerlink" title="因此，我們可以導出以下式子$$distance(a, b) &#x3D;\begin{cases}\overline{AB} - r_{a} - r_{b}, &amp; \text{if $\overline{AB}$ &gt; $r_{a}$ + $r_{b}$} \\0, &amp; \text{if $\overline{AB}$ $\le$  $r_{a}$ + $r_{b}$}\end{cases}$$建完圖後這題就變成單純的最短路啦，我們只要利用floyd warshall或任何求最短路的演算法，找出起點與終點的距離再乘以10就是答案了。"></a>因此，我們可以導出以下式子<br>$$<br>distance(a, b) &#x3D;<br>\begin{cases}<br>\overline{AB} - r_{a} - r_{b}, &amp; \text{if $\overline{AB}$ &gt; $r_{a}$ + $r_{b}$} \\<br>0, &amp; \text{if $\overline{AB}$ $\le$  $r_{a}$ + $r_{b}$}<br>\end{cases}<br>$$<br>建完圖後這題就變成單純的最短路啦，我們只要利用floyd warshall或任何求最短路的演算法，找出起點與終點的距離再乘以10就是答案了。</h2><ul>
-<li>💻 程式碼<blockquote>
-<p>10ms</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">dis_cal</span><span class="hljs-params">(<span class="hljs-type">int</span> x1, <span class="hljs-type">int</span> y1, <span class="hljs-type">int</span> z1, <span class="hljs-type">int</span> x2, <span class="hljs-type">int</span> y2, <span class="hljs-type">int</span> z2)</span></span>&#123;<br>	<span class="hljs-type">double</span> x = x1 - x2, y = y1 - y2, z = z1 - z2;<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">sqrt</span>(x * x + y * y + z * z);<br>&#125;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">holes</span>&#123;<br>	<span class="hljs-type">int</span> x, y, z, r;<br>&#125;;<br><br>holes arr[<span class="hljs-number">105</span>];<br><span class="hljs-type">double</span> dis[<span class="hljs-number">105</span>][<span class="hljs-number">105</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-type">int</span> n;<br>	<span class="hljs-type">int</span> kase = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">while</span>(cin &gt;&gt; n &amp;&amp; n != <span class="hljs-number">-1</span>)&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>			cin &gt;&gt; arr[i].x &gt;&gt; arr[i].y &gt;&gt; arr[i].z &gt;&gt; arr[i].r;<br>		&#125;<br>		<span class="hljs-comment">// 起點與終點可以視為半徑=0的洞</span><br>		cin &gt;&gt; arr[<span class="hljs-number">0</span>].x &gt;&gt; arr[<span class="hljs-number">0</span>].y &gt;&gt; arr[<span class="hljs-number">0</span>].z;<br>		arr[<span class="hljs-number">0</span>].r = <span class="hljs-number">0</span>;<br>		cin &gt;&gt; arr[n + <span class="hljs-number">1</span>].x &gt;&gt; arr[n + <span class="hljs-number">1</span>].y &gt;&gt; arr[n + <span class="hljs-number">1</span>].z;<br>		arr[n + <span class="hljs-number">1</span>].r = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n + <span class="hljs-number">2</span>; i++)&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n + <span class="hljs-number">2</span>; j++)&#123;<br>				dis[i][j] = INT_MAX;<br>			&#125;<br>		&#125;<br>		<span class="hljs-comment">// 利用公式，紀錄任兩點的距離。</span><br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n + <span class="hljs-number">2</span>; i++)&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n + <span class="hljs-number">2</span>; j++)&#123;<br>				<span class="hljs-type">double</span> d = <span class="hljs-built_in">dis_cal</span>(arr[i].x, arr[i].y, arr[i].z, arr[j].x, arr[j].y, arr[j].z);<br>				<span class="hljs-keyword">if</span>(d &lt;= arr[i].r + arr[j].r)<br>					dis[i][j] = <span class="hljs-number">0</span>;<br>				<span class="hljs-keyword">else</span>&#123;<br>					dis[i][j] = d - arr[i].r - arr[j].r;<br>				&#125;<br><br>			&#125;<br>		&#125;<br>		<span class="hljs-comment">// floyd warshall</span><br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; n + <span class="hljs-number">2</span>; k++)&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n + <span class="hljs-number">2</span>; i++)&#123;<br>				<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n + <span class="hljs-number">2</span>; j++)&#123;<br>					dis[i][j] = <span class="hljs-built_in">min</span>(dis[i][j], dis[i][k] + dis[k][j]);<br>				&#125;<br>			&#125;<br>		&#125;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Cheese %d: Travel time = %d sec\n&quot;</span>, ++kase, (<span class="hljs-type">int</span>)<span class="hljs-built_in">round</span>(dis[<span class="hljs-number">0</span>][n + <span class="hljs-number">1</span>] * <span class="hljs-number">10</span>));<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="✔️-題解"><a href="#✔️-題解" class="headerlink" title="✔️ 題解"></a>✔️ 題解</h2><p>首先，我們可能會很直覺的想到，是否我們只需要選擇index全部為奇數或全部為偶數加起來即可，但很明顯此方法是錯的，例如 $[10, 1, 1, 10]$ ，若只選奇數或只選偶數最大皆只有 $11$ ，但若我們拿 $nums[0]$ 與 $nums[3]$ 便可以獲得 $20$ 。<br>因此我們可以透過類似於 <a target="_blank" rel="noopener" href="https://leetcode.com/problems/climbing-stairs/">Climing Stairs</a>的方法來思考此題，假設我們要選擇房子 $i$ ，則必定保證房子 $i - 2$ 房子 $i - 3$ 一定有一個被選到，因為全部的數值皆為正數，就算有那種需要橫跨數個來選的(例如橫跨四個以上，中間的 $i - 2$ 與 $i - 3$ 一定有一個也可以被選)。因此此問題就能簡化成以下式子： $dp[i] &#x3D; nums[i] + max(dp[i - 2], dp[i - 3])$<br>而在實作上，不管Top-Down或Button-Up的作法皆可以成功解決此問題。</p>
+<hr>
+<h2 id="💻-程式碼"><a href="#💻-程式碼" class="headerlink" title="💻 程式碼"></a>💻 程式碼</h2><ul>
+<li><p>Top-Down(with Memoization)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 2 ms, AC</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    vector&lt;<span class="hljs-type">int</span>&gt; dp;<br>    <span class="hljs-type">int</span> n = <span class="hljs-number">0</span>;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">solve</span><span class="hljs-params">(<span class="hljs-type">int</span> h, vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(h &lt; <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(h &lt; <span class="hljs-number">2</span>)&#123;<br>            <span class="hljs-keyword">return</span> dp[h] = nums[h];<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(dp[h] != <span class="hljs-number">-1</span>)&#123;<br>            <span class="hljs-keyword">return</span> dp[h];<br>        &#125;<br>        <span class="hljs-keyword">return</span> dp[h] = nums[h] + <span class="hljs-built_in">max</span>(<span class="hljs-built_in">solve</span>(h - <span class="hljs-number">2</span>, nums), <span class="hljs-built_in">solve</span>(h - <span class="hljs-number">3</span>, nums));<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">rob</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(nums.<span class="hljs-built_in">size</span>() == <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];<br>        &#125;<br>        n = nums.<span class="hljs-built_in">size</span>();<br>        dp.<span class="hljs-built_in">resize</span>(n);<br>        <span class="hljs-built_in">fill</span>(dp.<span class="hljs-built_in">begin</span>(), dp.<span class="hljs-built_in">end</span>(), <span class="hljs-number">-1</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(<span class="hljs-built_in">solve</span>(n - <span class="hljs-number">1</span>, nums), <span class="hljs-built_in">solve</span>(n - <span class="hljs-number">2</span>, nums));<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>Button-Up</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 0ms, AC</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">rob</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(nums.<span class="hljs-built_in">size</span>() == <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];<br>        &#125;<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt; n; i++)&#123;<br>            <span class="hljs-keyword">if</span>(i == <span class="hljs-number">2</span>)&#123;<br>                nums[i] += nums[i - <span class="hljs-number">2</span>];<br>            &#125;<br>            <span class="hljs-keyword">else</span>&#123;<br>                nums[i] += <span class="hljs-built_in">max</span>(nums[i - <span class="hljs-number">2</span>], nums[i - <span class="hljs-number">3</span>]);   <br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(nums[n - <span class="hljs-number">1</span>], nums[n - <span class="hljs-number">2</span>]);<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
 <div class="note note-warning">
-            <p>答案記得乘以10後做round，否則會有精度問題QQ</p>
+            <p>Runtime: 0 ms, faster than 100% of C++ online submissions</p>
+          </div></li>
+</ul>
+<hr>
+<h2 id="類似問題：-213-House-Robber-II"><a href="#類似問題：-213-House-Robber-II" class="headerlink" title="類似問題： 213 House Robber II"></a>類似問題： <a target="_blank" rel="noopener" href="https://leetcode.com/problems/house-robber-ii/">213 House Robber II</a></h2><ul>
+<li><p>此題與 House Robber唯一的差別為其房子排序為一個環，代表第一個房子與最後一個房子也是相連的，而我們同樣可以透過類似的概念來完成此問題。</p>
+</li>
+<li><p>在實際上，我們可以分為兩個Cases，Case1是是不使用第一個房子，但使用最後一間(實作上直接將第一個房子設為0即可)，Case2則相反，使用第一個房子而不使用最後一間，並分別對兩個Case用上面的方法求解即可</p>
+</li>
+<li><p>Button-Up</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 0ms, AC</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">rob</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(nums.<span class="hljs-built_in">size</span>() == <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];<br>        &#125;<br>        <span class="hljs-keyword">if</span>(nums.<span class="hljs-built_in">size</span>() == <span class="hljs-number">2</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(nums[<span class="hljs-number">0</span>], nums[<span class="hljs-number">1</span>]);<br>        &#125;<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        vector&lt;<span class="hljs-type">int</span>&gt; v1 = nums;<br>        v1[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>        vector&lt;<span class="hljs-type">int</span>&gt; v2 = nums;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt; n; i++)&#123;<br>            <span class="hljs-keyword">if</span>(i == <span class="hljs-number">2</span>)&#123;<br>                v1[i] += v1[i - <span class="hljs-number">2</span>];<br>                v2[i] += v2[i - <span class="hljs-number">2</span>];<br>            &#125;<br>            <span class="hljs-keyword">else</span>&#123;<br>                v1[i] += <span class="hljs-built_in">max</span>(v1[i - <span class="hljs-number">2</span>], v1[i - <span class="hljs-number">3</span>]);<br>                v2[i] += <span class="hljs-built_in">max</span>(v2[i - <span class="hljs-number">2</span>], v2[i - <span class="hljs-number">3</span>]);   <br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(<span class="hljs-built_in">max</span>(v1[n - <span class="hljs-number">1</span>], v1[n - <span class="hljs-number">2</span>]), <span class="hljs-built_in">max</span>(v2[n - <span class="hljs-number">2</span>], v2[n - <span class="hljs-number">3</span>]));<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+<div class="note note-warning">
+            <p>Runtime: 0 ms, faster than 100% of C++ online submissions</p>
           </div></li>
 </ul>
 <hr>
 <ul>
-<li>🧠 心得<br>記得這是某次我們學校自辦賽的題目，當初做完這題的時候一直WA，找不到自己哪裡寫錯了，想說是哪裡想法有錯，最後被精度搞了一波🥲。<br>賽後發現自己的想法是正確的，只差在取round的部分，就想在這邊分享給大家啦～</li>
+<li>🧠 心得</li>
 </ul>
+<p>這兩題真的蠻像的，第二題甚至只需要複製前一提的程式再稍微改一下即可！</p>
 <hr>
 
                 
@@ -346,7 +372,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/UVa/" class="category-chain-item">UVa</a>
+  <a href="/categories/LeetCode/" class="category-chain-item">LeetCode</a>
   
   
 
@@ -361,13 +387,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Graph/">#Graph</a>
-      
         <a href="/tags/cpp/">#cpp</a>
       
-        <a href="/tags/Floyd-Warshall/">#Floyd Warshall</a>
+        <a href="/tags/Medium/">#Medium</a>
       
-        <a href="/tags/Shortest-Path/">#Shortest Path</a>
+        <a href="/tags/Dynamic-Programming/">#Dynamic Programming</a>
       
     </div>
   
@@ -379,8 +403,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>UVa01001 Say Cheese</div>
-      <div>http://example.com/2022/08/15/20220815/</div>
+      <div>LeetCode 198 House Robber</div>
+      <div>http://example.com/2024/01/21/20240121/</div>
     </div>
     <div class="license-meta">
       
@@ -392,7 +416,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>August 15, 2022</div>
+          <div>January 21, 2024</div>
         </div>
       
       
@@ -422,18 +446,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/18/20220818/" title="父親節快樂">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">父親節快樂</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/13/20220813/" title="UVa00452 Project Scheduling">
-                        <span class="hidden-mobile">UVa00452 Project Scheduling</span>
+                      <a href="/2023/08/23/20230823/" title="LeetCode 1685 Sum of Absolute Differences in a Sorted Array">
+                        <span class="hidden-mobile">LeetCode 1685 Sum of Absolute Differences in a Sorted Array</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -451,8 +469,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2022/08/15/20220815/';
-          this.page.identifier = '/2022/08/15/20220815/';
+          this.page.url = 'http://example.com/2024/01/21/20240121/';
+          this.page.identifier = '/2024/01/21/20240121/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
