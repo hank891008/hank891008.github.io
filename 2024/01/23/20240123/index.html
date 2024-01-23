@@ -17,27 +17,27 @@
   <meta name="author" content="Hank Hsu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="又到了每週一次的meeting，由於上禮拜沒有meeting到，我以為這週是不用報告的，只要大略講一下這週的進度，就沒有做投影片了。誰知道原來上週我們這組沒有報告到，我就緊急的在其他同學報告的時候把投影片趕出來(只做了7頁)，只能說我真的做的很敷衍哈哈哈。我發現自己常常會有這種僥倖的心態，常常把事情拖到最後一刻才做，我想這點是我需要好好反省並改善的，這幾天我應該會開始做我研究所的讀書計畫，也要開">
+    <meta name="description" content="題目連結  ❗️ 題意給定一個字串陣列 $arr$，請你從裡面取出一些字串並將其連接起來，要保證不能出現重複的字元，請輸出所有可能的結果中長度最長為何?  Input: $arr &#x3D; $ [“un”, “iq”,“ue”]  Output: $4$  “ ”, “un”, “iq”, “ue”, “uniq”, “ique” 長度最長的為 “uniq” 與 “ique”，兩者皆為4">
 <meta property="og:type" content="article">
-<meta property="og:title" content="忘記要報告了QQ">
-<meta property="og:url" content="http://example.com/2022/08/11/20220811/index.html">
+<meta property="og:title" content="LeetCode 1239 Maximum Length of a Concatenated String with Unique Characters">
+<meta property="og:url" content="http://example.com/2024/01/23/20240123/index.html">
 <meta property="og:site_name" content="Hank&#39;s Blog">
-<meta property="og:description" content="又到了每週一次的meeting，由於上禮拜沒有meeting到，我以為這週是不用報告的，只要大略講一下這週的進度，就沒有做投影片了。誰知道原來上週我們這組沒有報告到，我就緊急的在其他同學報告的時候把投影片趕出來(只做了7頁)，只能說我真的做的很敷衍哈哈哈。我發現自己常常會有這種僥倖的心態，常常把事情拖到最後一刻才做，我想這點是我需要好好反省並改善的，這幾天我應該會開始做我研究所的讀書計畫，也要開">
+<meta property="og:description" content="題目連結  ❗️ 題意給定一個字串陣列 $arr$，請你從裡面取出一些字串並將其連接起來，要保證不能出現重複的字元，請輸出所有可能的結果中長度最長為何?  Input: $arr &#x3D; $ [“un”, “iq”,“ue”]  Output: $4$  “ ”, “un”, “iq”, “ue”, “uniq”, “ique” 長度最長的為 “uniq” 與 “ique”，兩者皆為4">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/20220811/20220811.png">
-<meta property="article:published_time" content="2022-08-11T11:42:37.000Z">
-<meta property="article:modified_time" content="2022-08-25T10:24:28.199Z">
+<meta property="article:published_time" content="2024-01-23T11:33:45.000Z">
+<meta property="article:modified_time" content="2024-01-23T12:20:46.406Z">
 <meta property="article:author" content="Hank Hsu">
-<meta property="article:tag" content="心情">
-<meta property="article:tag" content="畢業專題">
+<meta property="article:tag" content="cpp">
+<meta property="article:tag" content="Medium">
+<meta property="article:tag" content="Backtracking">
+<meta property="article:tag" content="Bit Manipulation">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/20220811/20220811.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>忘記要報告了QQ - Hank&#39;s Blog</title>
+  <title>LeetCode 1239 Maximum Length of a Concatenated String with Unique Characters - Hank&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="忘記要報告了QQ"></span>
+            <span id="subtitle" data-typed-text="LeetCode 1239 Maximum Length of a Concatenated String with Unique Characters"></span>
           
         </div>
 
@@ -217,8 +217,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-11 19:42" pubdate>
-          August 11, 2022 pm
+        <time datetime="2024-01-23 19:33" pubdate>
+          January 23, 2024 pm
         </time>
       </span>
     
@@ -229,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          235 words
+          2.2k words
         
       </span>
     
@@ -240,7 +240,7 @@
         
         
         
-          2 mins
+          19 mins
         
       </span>
     
@@ -286,12 +286,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">忘記要報告了QQ</h1>
+            <h1 style="display: none">LeetCode 1239 Maximum Length of a Concatenated String with Unique Characters</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on a year ago
+                    Last updated on a few seconds ago
                   
                 
               </p>
@@ -299,11 +299,44 @@
             
               <div class="markdown-body">
                 
-                <hr>
-<p>又到了每週一次的meeting，由於上禮拜沒有meeting到，我以為這週是不用報告的，只要大略講一下這週的進度，就沒有做投影片了。誰知道原來上週我們這組沒有報告到，我就緊急的在其他同學報告的時候把投影片趕出來(只做了7頁)，只能說我真的做的很敷衍哈哈哈。我發現自己常常會有這種僥倖的心態，常常把事情拖到最後一刻才做，我想這點是我需要好好反省並改善的，這幾天我應該會開始做我研究所的讀書計畫，也要開始寄信給老師詢問推薦信的事了，現在只希望一切順利！</p>
-<blockquote>
-<p>30分鐘趕出來的投影片<br><img src="/./img/20220811/20220811.png" srcset="/img/loading.gif" lazyload alt="敷衍ㄉ投影片"></p>
-</blockquote>
+                <p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/">題目連結</a></p>
+<hr>
+<h2 id="❗️-題意"><a href="#❗️-題意" class="headerlink" title="❗️ 題意"></a>❗️ 題意</h2><p>給定一個字串陣列 $arr$，請你從裡面取出一些字串並將其連接起來，要保證不能出現重複的字元，請輸出所有可能的結果中長度最長為何?</p>
+<ul>
+<li><p>Input: $arr &#x3D; $ [“un”, “iq”,“ue”]</p>
+</li>
+<li><p>Output: $4$</p>
+<ul>
+<li>“ ”, “un”, “iq”, “ue”, “uniq”, “ique”</li>
+<li>長度最長的為 “uniq” 與 “ique”，兩者皆為4</li>
+</ul>
+</li>
+<li><p>Constraints:</p>
+<ul>
+<li>$1 \leq arr.length \leq 16$</li>
+<li>$1 \leq arr[i].length \leq 26$<ul>
+<li>$arr[i]$ contains only lowercase English letters.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="✔️-題解"><a href="#✔️-題解" class="headerlink" title="✔️ 題解"></a>✔️ 題解</h2><p>對於此題，由於其陣列長度與其中的字串長度皆不大，因此我們可以很直覺的想到或許可以透過枚舉的方式來解決，因此我在一開始是使用bitmask來枚舉，假設我們現在有一個長度是4的陣列，而bitmask現在是1011，就代表我們要拿第一個，第三個，第四個來計算其連接起來後的結果，而我們只需要透過枚舉0000 ~ 1111，也就是16(1&lt;&lt;4)種情況，就可以將所有可能的情況皆枚舉出來，這種做法由於是將所有可能皆嘗試一次，因此只適用於輸入的陣列不要太大的情況，以此題來說陣列大小最大只有16而已，因此此做法是可以成功AC的，但其效率並不好。</p>
+<p>因此我們可以進一步思考，其實很多結果根本不需要嘗試，假設1100就已經違反規定，那其他的例如1101, 1110, 1111根本沒有試的必要，因此我們可以使用 Backtracking 的方式，只對還沒有違反規定的結果來去枚舉下一步，透過這種剪枝的方式，就能大幅度的減少所需要枚舉的次數。</p>
+<hr>
+<h2 id="💻-程式碼"><a href="#💻-程式碼" class="headerlink" title="💻 程式碼"></a>💻 程式碼</h2><ul>
+<li><p>Bit Mask</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 570 ms, AC</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    vector&lt;string&gt;now;<br>    <span class="hljs-type">int</span> used[<span class="hljs-number">30</span>];<br>    <span class="hljs-type">int</span> ans;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">check</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-type">bool</span> alpha[<span class="hljs-number">30</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br>        <span class="hljs-type">int</span> tot = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> st: now)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> s: st)&#123;<br>                <span class="hljs-keyword">if</span>(alpha[s - <span class="hljs-string">&#x27;a&#x27;</span>] == <span class="hljs-literal">true</span>)&#123;<br>                    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>                &#125;<br>                alpha[s - <span class="hljs-string">&#x27;a&#x27;</span>] = <span class="hljs-literal">true</span>;<br>                tot++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> tot;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxLength</span><span class="hljs-params">(vector&lt;string&gt;&amp; arr)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; (<span class="hljs-number">1</span> &lt;&lt; arr.<span class="hljs-built_in">size</span>()); i++)&#123;<br>            now.<span class="hljs-built_in">clear</span>();<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; arr.<span class="hljs-built_in">size</span>(); j++)&#123;<br>                <span class="hljs-keyword">if</span>((i &gt;&gt; j) &amp; <span class="hljs-number">1</span>)&#123;<br>                    now.<span class="hljs-built_in">emplace_back</span>(arr[j]);<br>                &#125;<br>            &#125;<br>            ans = <span class="hljs-built_in">max</span>(ans, <span class="hljs-built_in">check</span>());<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>Backtracking</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 21ms, AC</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    vector&lt;string&gt;now;<br>    <span class="hljs-type">int</span> used[<span class="hljs-number">30</span>];<br>    <span class="hljs-type">int</span> ans;<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">check</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-type">bool</span> alpha[<span class="hljs-number">30</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br>        <span class="hljs-type">int</span> tot = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> st: now)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> s: st)&#123;<br>                <span class="hljs-keyword">if</span>(alpha[s - <span class="hljs-string">&#x27;a&#x27;</span>] == <span class="hljs-literal">true</span>)&#123;<br>                    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>                &#125;<br>                alpha[s - <span class="hljs-string">&#x27;a&#x27;</span>] = <span class="hljs-literal">true</span>;<br>                tot++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> tot;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> idx, vector&lt;string&gt;&amp; arr)</span></span>&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = idx + <span class="hljs-number">1</span>; i &lt; arr.<span class="hljs-built_in">size</span>(); i++)&#123;<br>            <span class="hljs-keyword">if</span>(!used[i])&#123;<br>                now.<span class="hljs-built_in">emplace_back</span>(arr[i]);<br>                <span class="hljs-type">int</span> chk = <span class="hljs-built_in">check</span>();<br>                <span class="hljs-keyword">if</span>(chk != <span class="hljs-number">-1</span>)&#123;<br>                    used[i] = <span class="hljs-literal">true</span>;<br>                    ans = <span class="hljs-built_in">max</span>(ans, chk);<br>                    <span class="hljs-built_in">dfs</span>(i, arr);<br>                &#125;<br>                now.<span class="hljs-built_in">pop_back</span>();<br>                used[i] = <span class="hljs-literal">false</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxLength</span><span class="hljs-params">(vector&lt;string&gt;&amp; arr)</span> </span>&#123;<br>        <span class="hljs-built_in">dfs</span>(<span class="hljs-number">-1</span>, arr);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<div class="note note-warning">
+            <p>Runtime: 21 ms, faster than 72.91% of C++ online submissions</p>
+          </div></li>
+</ul>
+<hr>
+<h2 id="🧠-心得"><a href="#🧠-心得" class="headerlink" title="🧠 心得"></a>🧠 心得</h2><p>我覺得的我的 check function並沒有寫好， 因為我每次計算時都要重新計算一次長度，但其實不需要這樣做，我們可以維護一組global的陣列，存著目前已使用的字元(a~z)，之後計算時只要針對目前要加入的字串去增加或減少此陣列即可，但我好懶就沒有改了XD</p>
 <hr>
 
                 
@@ -313,34 +346,17 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E9%80%B1%E8%A8%98/" class="category-chain-item">週記</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%BF%83%E6%83%85/">#心情</a>
+        <a href="/tags/cpp/">#cpp</a>
       
-        <a href="/tags/%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/">#畢業專題</a>
+        <a href="/tags/Medium/">#Medium</a>
+      
+        <a href="/tags/Backtracking/">#Backtracking</a>
+      
+        <a href="/tags/Bit-Manipulation/">#Bit Manipulation</a>
       
     </div>
   
@@ -352,8 +368,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>忘記要報告了QQ</div>
-      <div>http://example.com/2022/08/11/20220811/</div>
+      <div>LeetCode 1239 Maximum Length of a Concatenated String with Unique Characters</div>
+      <div>http://example.com/2024/01/23/20240123/</div>
     </div>
     <div class="license-meta">
       
@@ -365,7 +381,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>August 11, 2022</div>
+          <div>January 23, 2024</div>
         </div>
       
       
@@ -395,18 +411,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/13/20220813/" title="UVa00452 Project Scheduling">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">UVa00452 Project Scheduling</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/10/20220810/" title="模型修改">
-                        <span class="hidden-mobile">模型修改</span>
+                      <a href="/2024/01/21/20240121/" title="LeetCode 198 House Robber">
+                        <span class="hidden-mobile">LeetCode 198 House Robber</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -424,8 +434,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2022/08/11/20220811/';
-          this.page.identifier = '/2022/08/11/20220811/';
+          this.page.url = 'http://example.com/2024/01/23/20240123/';
+          this.page.identifier = '/2024/01/23/20240123/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
@@ -485,6 +495,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -675,6 +691,40 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
